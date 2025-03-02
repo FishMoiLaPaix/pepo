@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,13 +15,10 @@
  */
 #include "distortion_mesh.h"
 
-<<<<<<< HEAD
 #include <vector>
 
 #include "include/cardboard.h"
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 namespace cardboard {
 
 DistortionMesh::DistortionMesh(
@@ -34,16 +27,9 @@ DistortionMesh::DistortionMesh(
     float screen_width, float screen_height, float x_eye_offset_screen,
     float y_eye_offset_screen, float texture_width, float texture_height,
     float x_eye_offset_texture, float y_eye_offset_texture) {
-<<<<<<< HEAD
   vertex_data_.resize(kResolution * kResolution *
                       2);                           // 2 components per vertex
   uvs_data_.resize(kResolution * kResolution * 2);  // 2 components per uv
-=======
-  float* vertex_data =
-      new float[kResolution * kResolution * 2];  // 2 components per vertex
-  float* uvs_data =
-      new float[kResolution * kResolution * 2];  // 2 components per uv
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   float u_screen, v_screen, u_texture, v_texture;
   std::array<float, 2> p_texture;
   std::array<float, 2> p_screen;
@@ -69,17 +55,10 @@ DistortionMesh::DistortionMesh(
 
       const int index = (row * kResolution + col) * 2;
 
-<<<<<<< HEAD
       vertex_data_[index + 0] = 2 * u_screen - 1;
       vertex_data_[index + 1] = 2 * v_screen - 1;
       uvs_data_[index + 0] = u_texture;
       uvs_data_[index + 1] = v_texture;
-=======
-      vertex_data[index + 0] = 2 * u_screen - 1;
-      vertex_data[index + 1] = 2 * v_screen - 1;
-      uvs_data[index + 0] = u_texture;
-      uvs_data[index + 1] = v_texture;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     }
   }
 
@@ -108,20 +87,12 @@ DistortionMesh::DistortionMesh(
   //   1 extra vertex per row (except first and last) for a
   //     degenerate triangle
   const int n_indices = 2 * (kResolution - 1) * kResolution + (kResolution - 2);
-<<<<<<< HEAD
   index_data_.resize(n_indices);
-=======
-  int* index_data = new int[n_indices];
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   int index_offset = 0;
   int vertex_offset = 0;
   for (int row = 0; row < kResolution - 1; row++) {
     if (row > 0) {
-<<<<<<< HEAD
       index_data_[index_offset] = index_data_[index_offset - 1];
-=======
-      index_data[index_offset] = index_data[index_offset - 1];
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
       index_offset++;
     }
     for (int col = 0; col < kResolution; col++) {
@@ -134,7 +105,6 @@ DistortionMesh::DistortionMesh(
           vertex_offset--;
         }
       }
-<<<<<<< HEAD
       index_data_[index_offset++] = vertex_offset;
       index_data_[index_offset++] = vertex_offset + kResolution;
     }
@@ -152,28 +122,4 @@ CardboardMesh DistortionMesh::GetMesh() const {
   return mesh;
 }
 
-=======
-      index_data[index_offset++] = vertex_offset;
-      index_data[index_offset++] = vertex_offset + kResolution;
-    }
-    vertex_offset = vertex_offset + kResolution;
-  }
-
-  mesh_.indices = index_data;
-  mesh_.vertices = vertex_data;
-  mesh_.uvs = uvs_data;
-
-  mesh_.n_indices = n_indices;
-  mesh_.n_vertices = kResolution * kResolution;
-}
-
-DistortionMesh::~DistortionMesh() {
-  delete mesh_.indices;
-  delete mesh_.vertices;
-  delete mesh_.uvs;
-}
-
-CardboardMesh DistortionMesh::GetMesh() const { return mesh_; }
-
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }  // namespace cardboard

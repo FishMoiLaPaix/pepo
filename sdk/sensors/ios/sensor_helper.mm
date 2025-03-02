@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -79,18 +75,13 @@ static const NSTimeInterval kGyroUpdateInterval = 0.01;
     case SensorHelperTypeAccelerometer: {
       [self
           invokeBlock:^{
-<<<<<<< HEAD
             [self->_accelerometerCallbacks addObject:callback];
-=======
-            [_accelerometerCallbacks addObject:callback];
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
           }
              withLock:_accelerometerLock];
 
       if (_motionManager.isAccelerometerActive) break;
 
       _motionManager.accelerometerUpdateInterval = kAccelerometerUpdateInterval;
-<<<<<<< HEAD
       [_motionManager startAccelerometerUpdatesToQueue:_queue
                                            withHandler:^(CMAccelerometerData *accelerometerData,
                                                          NSError * /*error*/) {
@@ -107,34 +98,12 @@ static const NSTimeInterval kGyroUpdateInterval = 0.01;
                                                       withLock:self->_accelerometerLock];
                                              }
                                            }];
-=======
-      [_motionManager
-          startAccelerometerUpdatesToQueue:_queue
-                               withHandler:^(CMAccelerometerData *accelerometerData,
-                                             NSError *error) {
-                                 if (self.accelerometerData.timestamp !=
-                                     accelerometerData.timestamp) {
-                                   self.accelerometerData = accelerometerData;
-                                   [self
-                                       invokeBlock:^{
-                                         for (void (^callback)(void) in _accelerometerCallbacks) {
-                                           callback();
-                                         }
-                                       }
-                                          withLock:_accelerometerLock];
-                                 }
-                               }];
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     } break;
 
     case SensorHelperTypeGyro: {
       [self
           invokeBlock:^{
-<<<<<<< HEAD
             [self->_deviceMotionCallbacks addObject:callback];
-=======
-            [_deviceMotionCallbacks addObject:callback];
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
           }
              withLock:_deviceMotionLock];
 
@@ -143,29 +112,17 @@ static const NSTimeInterval kGyroUpdateInterval = 0.01;
       _motionManager.deviceMotionUpdateInterval = kGyroUpdateInterval;
       [_motionManager
           startDeviceMotionUpdatesToQueue:_queue
-<<<<<<< HEAD
                               withHandler:^(CMDeviceMotion *motionData, NSError * /*error*/) {
-=======
-                              withHandler:^(CMDeviceMotion *motionData, NSError *error) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
                                 if (self.deviceMotion.timestamp != motionData.timestamp) {
                                   self.deviceMotion = motionData;
                                   [self
                                       invokeBlock:^{
-<<<<<<< HEAD
                                         for (void (^callback)(void)
                                                  in self->_deviceMotionCallbacks) {
                                           callback();
                                         }
                                       }
                                          withLock:self->_deviceMotionLock];
-=======
-                                        for (void (^callback)(void) in _deviceMotionCallbacks) {
-                                          callback();
-                                        }
-                                      }
-                                         withLock:_deviceMotionLock];
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
                                 }
                               }];
     } break;
@@ -177,11 +134,7 @@ static const NSTimeInterval kGyroUpdateInterval = 0.01;
     case SensorHelperTypeAccelerometer: {
       [self
           invokeBlock:^{
-<<<<<<< HEAD
             [self->_accelerometerCallbacks removeObject:callback];
-=======
-            [_accelerometerCallbacks removeObject:callback];
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
           }
              withLock:_accelerometerLock];
       if (_accelerometerCallbacks.count == 0) {
@@ -192,11 +145,7 @@ static const NSTimeInterval kGyroUpdateInterval = 0.01;
     case SensorHelperTypeGyro: {
       [self
           invokeBlock:^{
-<<<<<<< HEAD
             [self->_deviceMotionCallbacks removeObject:callback];
-=======
-            [_deviceMotionCallbacks removeObject:callback];
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
           }
              withLock:_deviceMotionLock];
       if (_deviceMotionCallbacks.count == 0) {

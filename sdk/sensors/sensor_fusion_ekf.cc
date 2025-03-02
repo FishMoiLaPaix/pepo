@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +17,6 @@
 
 #include <algorithm>
 #include <cmath>
-<<<<<<< HEAD
 #include <memory>
 
 #include "sensors/accelerometer_data.h"
@@ -29,12 +24,6 @@
 #include "sensors/lowpass_filter.h"
 
 #include "util/logging.h"
-=======
-
-#include "sensors/accelerometer_data.h"
-#include "sensors/gyroscope_data.h"
-#include "sensors/pose_prediction.h"
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 #include "util/matrixutils.h"
 
 namespace cardboard {
@@ -81,7 +70,6 @@ Rotation RotationFromVector(const Vector3& a) {
   return Rotation::FromAxisAndAngle(a / norm_a, norm_a);
 }
 
-<<<<<<< HEAD
 // Computes a rotation matrix based on the integration of the gyroscope_value
 // over the @p timestep_s in seconds.
 //
@@ -116,41 +104,29 @@ constexpr double ComputeTimeDifferenceInSeconds(int64_t timestamp_ns_a,
   return static_cast<double>(timestamp_ns_a - timestamp_ns_b) * 1.e-9;
 }
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }  // namespace
 
 SensorFusionEkf::SensorFusionEkf()
     : execute_reset_with_next_accelerometer_sample_(false),
-<<<<<<< HEAD
-=======
-      bias_estimation_enabled_(true),
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
       gyroscope_bias_estimate_({0, 0, 0}) {
   ResetState();
 }
 
-<<<<<<< HEAD
 void SensorFusionEkf::SetLowPassFilter(
     const int velocity_filter_cutoff_frequency) {
   velocity_filter_.reset(new LowpassFilter(velocity_filter_cutoff_frequency));
   ResetState();
 }
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 void SensorFusionEkf::Reset() {
   execute_reset_with_next_accelerometer_sample_ = true;
 }
 
-<<<<<<< HEAD
 void SensorFusionEkf::RotateSensorSpaceToStartSpaceTransformation(
     const Rotation& rotation) {
   current_state_.sensor_from_start_rotation *= rotation;
 }
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 void SensorFusionEkf::ResetState() {
   current_state_.sensor_from_start_rotation = Rotation::Identity();
   current_state_.sensor_from_start_rotation_velocity = Vector3::Zero();
@@ -181,28 +157,20 @@ void SensorFusionEkf::ResetState() {
   // Reset biases.
   gyroscope_bias_estimator_.Reset();
   gyroscope_bias_estimate_ = {0, 0, 0};
-<<<<<<< HEAD
 
   if (velocity_filter_ != nullptr) {
     velocity_filter_->Reset();
   }
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }
 
 // Here I am doing something wrong relative to time stamps. The state timestamps
 // always correspond to the gyrostamps because it would require additional
 // extrapolation if I wanted to do otherwise.
-<<<<<<< HEAD
 RotationState SensorFusionEkf::GetLatestRotationState() const {
-=======
-PoseState SensorFusionEkf::GetLatestPoseState() const {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   std::unique_lock<std::mutex> lock(mutex_);
   return current_state_;
 }
 
-<<<<<<< HEAD
 Rotation SensorFusionEkf::PredictRotation(int64_t requested_timestamp) const {
   std::unique_lock<std::mutex> lock(mutex_);
   // If the required timestamp is equal to zero, return the current pose.
@@ -219,8 +187,6 @@ Rotation SensorFusionEkf::PredictRotation(int64_t requested_timestamp) const {
   return update * current_state_.sensor_from_start_rotation;
 }
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 void SensorFusionEkf::ProcessGyroscopeSample(const GyroscopeData& sample) {
   std::unique_lock<std::mutex> lock(mutex_);
 
@@ -253,7 +219,6 @@ void SensorFusionEkf::ProcessGyroscopeSample(const GyroscopeData& sample) {
       FilterGyroscopeTimestep(current_timestep_s);
     }
 
-<<<<<<< HEAD
     // { Process gyroscope bias estimation
     gyroscope_bias_estimator_.ProcessGyroscope(sample.data,
                                                sample.sensor_timestamp_ns);
@@ -272,27 +237,6 @@ void SensorFusionEkf::ProcessGyroscopeSample(const GyroscopeData& sample) {
            sample.data[1] - gyroscope_bias_estimate_[1],
            sample.data[2] - gyroscope_bias_estimate_[2]},
           current_timestep_s);
-=======
-    if (bias_estimation_enabled_) {
-      gyroscope_bias_estimator_.ProcessGyroscope(sample.data,
-                                                 sample.sensor_timestamp_ns);
-
-      if (gyroscope_bias_estimator_.IsCurrentEstimateValid()) {
-        // As soon as the device is considered to be static, the bias estimator
-        // should have a precise estimate of the gyroscope bias.
-        gyroscope_bias_estimate_ = gyroscope_bias_estimator_.GetGyroscopeBias();
-      }
-    }
-
-    // Only integrate after receiving a accelerometer sample.
-    if (is_aligned_with_gravity_) {
-      const Rotation rotation_from_gyroscope =
-          pose_prediction::GetRotationFromGyroscope(
-              {sample.data[0] - gyroscope_bias_estimate_[0],
-               sample.data[1] - gyroscope_bias_estimate_[1],
-               sample.data[2] - gyroscope_bias_estimate_[2]},
-              current_timestep_s);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
       current_state_.sensor_from_start_rotation =
           rotation_from_gyroscope * current_state_.sensor_from_start_rotation;
       UpdateStateCovariance(RotationMatrixNH(rotation_from_gyroscope));
@@ -305,7 +249,6 @@ void SensorFusionEkf::ProcessGyroscopeSample(const GyroscopeData& sample) {
   // Saves gyroscope event for future prediction.
   current_state_.timestamp = sample.system_timestamp;
   current_gyroscope_sensor_timestamp_ns_ = sample.sensor_timestamp_ns;
-<<<<<<< HEAD
 
   if (velocity_filter_ != nullptr) {
     velocity_filter_->AddSample(sample.data - gyroscope_bias_estimate_,
@@ -326,16 +269,6 @@ void SensorFusionEkf::ProcessGyroscopeSample(const GyroscopeData& sample) {
 
 Vector3 SensorFusionEkf::ComputeInnovation(const Rotation& rotation_in) {
   const Vector3 predicted_down_direction = rotation_in * kCanonicalZDirection;
-=======
-  current_state_.sensor_from_start_rotation_velocity.Set(
-      sample.data[0] - gyroscope_bias_estimate_[0],
-      sample.data[1] - gyroscope_bias_estimate_[1],
-      sample.data[2] - gyroscope_bias_estimate_[2]);
-}
-
-Vector3 SensorFusionEkf::ComputeInnovation(const Rotation& pose) {
-  const Vector3 predicted_down_direction = pose * kCanonicalZDirection;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
   const Rotation rotation = Rotation::RotateInto(predicted_down_direction,
                                                  accelerometer_measurement_);
@@ -381,16 +314,9 @@ void SensorFusionEkf::ProcessAccelerometerSample(
                                  sample.data[2]);
   current_accelerometer_sensor_timestamp_ns_ = sample.sensor_timestamp_ns;
 
-<<<<<<< HEAD
   // Process gyroscope bias estimation.
   gyroscope_bias_estimator_.ProcessAccelerometer(sample.data,
                                                  sample.sensor_timestamp_ns);
-=======
-  if (bias_estimation_enabled_) {
-    gyroscope_bias_estimator_.ProcessAccelerometer(sample.data,
-                                                   sample.sensor_timestamp_ns);
-  }
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
   if (!is_aligned_with_gravity_) {
     // This is the first accelerometer measurement so it initializes the
@@ -427,11 +353,7 @@ void SensorFusionEkf::ProcessAccelerometerSample(
                        kalman_gain_ * accelerometer_measurement_jacobian_) *
                       state_covariance_;
 
-<<<<<<< HEAD
   // Updates rotation and associate covariance matrix.
-=======
-  // Updates pose and associate covariance matrix.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   const Rotation rotation_from_state_update = RotationFromVector(state_update_);
 
   current_state_.sensor_from_start_rotation =
@@ -491,19 +413,4 @@ void SensorFusionEkf::UpdateMeasurementCovariance() {
                                           accelerometer_noise_sigma;
 }
 
-<<<<<<< HEAD
-=======
-bool SensorFusionEkf::IsBiasEstimationEnabled() const {
-  return bias_estimation_enabled_;
-}
-
-void SensorFusionEkf::SetBiasEstimationEnabled(bool enable) {
-  if (bias_estimation_enabled_ != enable) {
-    bias_estimation_enabled_ = enable;
-    gyroscope_bias_estimate_ = {0, 0, 0};
-    gyroscope_bias_estimator_.Reset();
-  }
-}
-
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }  // namespace cardboard

@@ -7,16 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-<<<<<<< HEAD
 		0F29AA5F255AC37F00154BD0 /* opengl_es3_distortion_renderer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0F29AA5E255AC37F00154BD0 /* opengl_es3_distortion_renderer.cc */; };
 		0F29AA62255AC3A200154BD0 /* is_initialized.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0F29AA61255AC3A200154BD0 /* is_initialized.cc */; };
 		0F6BA71F25CC53E100C1B015 /* opengl_es2_renderer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BA71D25CC53E100C1B015 /* opengl_es2_renderer.cc */; };
 		0F6BA72025CC53E100C1B015 /* opengl_es3_renderer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BA71E25CC53E100C1B015 /* opengl_es3_renderer.cc */; };
 		0F6BA72425CC5B7D00C1B015 /* metal_renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F6BA72325CC5B7D00C1B015 /* metal_renderer.mm */; };
 		0F984F7A25C047860033D5C6 /* metal_distortion_renderer.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0F984F7925C047860033D5C6 /* metal_distortion_renderer.mm */; };
-=======
-		0F8D4FDF2361F86A00E7C48D /* libprotobuf-lite.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8D4FDE2361F86A00E7C48D /* libprotobuf-lite.a */; };
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 		0FD2023E23575F3B00B3C342 /* screen_params.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0FD201FA23575F3A00B3C342 /* screen_params.mm */; };
 		0FD2023F23575F3B00B3C342 /* rotation.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0FD201FD23575F3A00B3C342 /* rotation.cc */; };
 		0FD2024023575F3B00B3C342 /* vectorutils.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0FD201FE23575F3A00B3C342 /* vectorutils.cc */; };
@@ -28,10 +24,6 @@
 		0FD2024623575F3B00B3C342 /* lowpass_filter.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2020E23575F3B00B3C342 /* lowpass_filter.cc */; };
 		0FD2024723575F3B00B3C342 /* median_filter.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2020F23575F3B00B3C342 /* median_filter.cc */; };
 		0FD2024823575F3B00B3C342 /* neck_model.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2021023575F3B00B3C342 /* neck_model.cc */; };
-<<<<<<< HEAD
-=======
-		0FD2024923575F3B00B3C342 /* pose_prediction.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2021123575F3B00B3C342 /* pose_prediction.cc */; };
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 		0FD2024A23575F3B00B3C342 /* sensor_fusion_ekf.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2021323575F3B00B3C342 /* sensor_fusion_ekf.cc */; };
 		0FD2024B23575F3B00B3C342 /* device_gyroscope_sensor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2021723575F3B00B3C342 /* device_gyroscope_sensor.mm */; };
 		0FD2024C23575F3B00B3C342 /* device_accelerometer_sensor.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2021923575F3B00B3C342 /* device_accelerometer_sensor.mm */; };
@@ -40,23 +32,14 @@
 		0FD2024F23575F3B00B3C342 /* gyroscope_bias_estimator.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2022123575F3B00B3C342 /* gyroscope_bias_estimator.cc */; };
 		0FD2025023575F3B00B3C342 /* mean_filter.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2022623575F3B00B3C342 /* mean_filter.cc */; };
 		0FD2025123575F3B00B3C342 /* cardboard.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2022723575F3B00B3C342 /* cardboard.cc */; };
-<<<<<<< HEAD
 		0FD2025323575F3B00B3C342 /* polynomial_radial_distortion.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2023023575F3B00B3C342 /* polynomial_radial_distortion.cc */; };
 		0FD2025423575F3B00B3C342 /* qr_scan_view_controller.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2023323575F3B00B3C342 /* qr_scan_view_controller.mm */; };
 		0FD2025523575F3B00B3C342 /* qr_code.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2023423575F3B00B3C342 /* qr_code.mm */; };
-=======
-		0FD2025223575F3B00B3C342 /* distortion_renderer.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2022823575F3B00B3C342 /* distortion_renderer.cc */; };
-		0FD2025323575F3B00B3C342 /* polynomial_radial_distortion.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2023023575F3B00B3C342 /* polynomial_radial_distortion.cc */; };
-		0FD2025423575F3B00B3C342 /* qr_scan_view_controller.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2023323575F3B00B3C342 /* qr_scan_view_controller.mm */; };
-		0FD2025523575F3B00B3C342 /* qr_code.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2023423575F3B00B3C342 /* qr_code.mm */; };
-		0FD2025623575F3B00B3C342 /* nsurl_connection_data_handler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2023723575F3B00B3C342 /* nsurl_connection_data_handler.mm */; };
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 		0FD2025723575F3B00B3C342 /* device_params_helper.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2023823575F3B00B3C342 /* device_params_helper.mm */; };
 		0FD2025823575F3B00B3C342 /* cardboard_v1.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2023B23575F3B00B3C342 /* cardboard_v1.cc */; };
 		0FD2025923575F3B00B3C342 /* distortion_mesh.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2023D23575F3B00B3C342 /* distortion_mesh.cc */; };
 		0FD2025F2357613600B3C342 /* cardboard_device.pb.cc in Sources */ = {isa = PBXBuildFile; fileRef = 0FD2025E2357613600B3C342 /* cardboard_device.pb.cc */; };
 		0FD2027C235766E800B3C342 /* cardboard.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 0FD2022B23575F3B00B3C342 /* cardboard.h */; };
-<<<<<<< HEAD
 		0FECE29825BB2760009C662C /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FECE29725BB2760009C662C /* Metal.framework */; };
 		0FECE29A25BB276D009C662C /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FECE29925BB276D009C662C /* MetalKit.framework */; };
 		0FEDA006283670070023E8C8 /* nsurl_session_data_handler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 0FEDA004283670070023E8C8 /* nsurl_session_data_handler.mm */; };
@@ -67,8 +50,6 @@
 		7B76813D24A3FA6B00E92050 /* math_tools.cc in Sources */ = {isa = PBXBuildFile; fileRef = 7B76813724A3FA6B00E92050 /* math_tools.cc */; };
 		E01C984226B44A72001BB0E3 /* cardboard_display_api.cc in Sources */ = {isa = PBXBuildFile; fileRef = E01C984026B44A71001BB0E3 /* cardboard_display_api.cc */; };
 		E0DFCFED26B3474400F285A5 /* cardboard_input_api.cc in Sources */ = {isa = PBXBuildFile; fileRef = E0DFCFEC26B3474400F285A5 /* cardboard_input_api.cc */; };
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -85,7 +66,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-<<<<<<< HEAD
 		0F29AA5E255AC37F00154BD0 /* opengl_es3_distortion_renderer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = opengl_es3_distortion_renderer.cc; sourceTree = "<group>"; };
 		0F29AA60255AC3A200154BD0 /* is_initialized.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = is_initialized.h; sourceTree = "<group>"; };
 		0F29AA61255AC3A200154BD0 /* is_initialized.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = is_initialized.cc; sourceTree = "<group>"; };
@@ -96,10 +76,6 @@
 		0F6BA72325CC5B7D00C1B015 /* metal_renderer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = metal_renderer.mm; sourceTree = "<group>"; };
 		0F984F7925C047860033D5C6 /* metal_distortion_renderer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = metal_distortion_renderer.mm; sourceTree = "<group>"; };
 		0FD200852357511E00B3C342 /* GfxPluginCardboard.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = GfxPluginCardboard.a; sourceTree = BUILT_PRODUCTS_DIR; };
-=======
-		0F8D4FDE2361F86A00E7C48D /* libprotobuf-lite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libprotobuf-lite.a"; path = "../proto/libprotobuf/ios/lib/libprotobuf-lite.a"; sourceTree = "<group>"; };
-		0FD200852357511E00B3C342 /* libsdk.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsdk.a; sourceTree = BUILT_PRODUCTS_DIR; };
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 		0FD201FA23575F3A00B3C342 /* screen_params.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = screen_params.mm; sourceTree = "<group>"; };
 		0FD201FB23575F3A00B3C342 /* lens_distortion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lens_distortion.h; sourceTree = "<group>"; };
 		0FD201FD23575F3A00B3C342 /* rotation.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = rotation.cc; sourceTree = "<group>"; };
@@ -121,11 +97,6 @@
 		0FD2020E23575F3B00B3C342 /* lowpass_filter.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = lowpass_filter.cc; sourceTree = "<group>"; };
 		0FD2020F23575F3B00B3C342 /* median_filter.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = median_filter.cc; sourceTree = "<group>"; };
 		0FD2021023575F3B00B3C342 /* neck_model.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = neck_model.cc; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
-		0FD2021123575F3B00B3C342 /* pose_prediction.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = pose_prediction.cc; sourceTree = "<group>"; };
-		0FD2021223575F3B00B3C342 /* pose_prediction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pose_prediction.h; sourceTree = "<group>"; };
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 		0FD2021323575F3B00B3C342 /* sensor_fusion_ekf.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sensor_fusion_ekf.cc; sourceTree = "<group>"; };
 		0FD2021423575F3B00B3C342 /* lowpass_filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = lowpass_filter.h; sourceTree = "<group>"; };
 		0FD2021523575F3B00B3C342 /* sensor_fusion_ekf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sensor_fusion_ekf.h; sourceTree = "<group>"; };
@@ -141,19 +112,11 @@
 		0FD2022023575F3B00B3C342 /* mean_filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = mean_filter.h; sourceTree = "<group>"; };
 		0FD2022123575F3B00B3C342 /* gyroscope_bias_estimator.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = gyroscope_bias_estimator.cc; sourceTree = "<group>"; };
 		0FD2022223575F3B00B3C342 /* gyroscope_bias_estimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = gyroscope_bias_estimator.h; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		0FD2022323575F3B00B3C342 /* rotation_state.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = rotation_state.h; sourceTree = "<group>"; };
-=======
-		0FD2022323575F3B00B3C342 /* pose_state.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pose_state.h; sourceTree = "<group>"; };
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 		0FD2022423575F3B00B3C342 /* sensor_event_producer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = sensor_event_producer.h; sourceTree = "<group>"; };
 		0FD2022523575F3B00B3C342 /* median_filter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = median_filter.h; sourceTree = "<group>"; };
 		0FD2022623575F3B00B3C342 /* mean_filter.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = mean_filter.cc; sourceTree = "<group>"; };
 		0FD2022723575F3B00B3C342 /* cardboard.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cardboard.cc; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
-		0FD2022823575F3B00B3C342 /* distortion_renderer.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = distortion_renderer.cc; sourceTree = "<group>"; };
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 		0FD2022923575F3B00B3C342 /* screen_params.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = screen_params.h; sourceTree = "<group>"; };
 		0FD2022B23575F3B00B3C342 /* cardboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cardboard.h; sourceTree = "<group>"; };
 		0FD2022C23575F3B00B3C342 /* distortion_mesh.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = distortion_mesh.h; sourceTree = "<group>"; };
@@ -164,18 +127,12 @@
 		0FD2023323575F3B00B3C342 /* qr_scan_view_controller.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = qr_scan_view_controller.mm; sourceTree = "<group>"; };
 		0FD2023423575F3B00B3C342 /* qr_code.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = qr_code.mm; sourceTree = "<group>"; };
 		0FD2023523575F3B00B3C342 /* device_params_helper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = device_params_helper.h; sourceTree = "<group>"; };
-<<<<<<< HEAD
-=======
-		0FD2023623575F3B00B3C342 /* nsurl_connection_data_handler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = nsurl_connection_data_handler.h; sourceTree = "<group>"; };
-		0FD2023723575F3B00B3C342 /* nsurl_connection_data_handler.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = nsurl_connection_data_handler.mm; sourceTree = "<group>"; };
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 		0FD2023823575F3B00B3C342 /* device_params_helper.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = device_params_helper.mm; sourceTree = "<group>"; };
 		0FD2023923575F3B00B3C342 /* qr_scan_view_controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = qr_scan_view_controller.h; sourceTree = "<group>"; };
 		0FD2023B23575F3B00B3C342 /* cardboard_v1.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cardboard_v1.cc; sourceTree = "<group>"; };
 		0FD2023C23575F3B00B3C342 /* cardboard_v1.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cardboard_v1.h; sourceTree = "<group>"; };
 		0FD2023D23575F3B00B3C342 /* distortion_mesh.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = distortion_mesh.cc; sourceTree = "<group>"; };
 		0FD2025E2357613600B3C342 /* cardboard_device.pb.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = cardboard_device.pb.cc; path = ../proto/cardboard_device.pb.cc; sourceTree = "<group>"; };
-<<<<<<< HEAD
 		0FD202B92357C0F200B3C342 /* sdk.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = sdk.bundle; path = qrcode/ios/sdk.bundle; sourceTree = "<group>"; };
 		0FECE29725BB2760009C662C /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk/System/Library/Frameworks/Metal.framework; sourceTree = DEVELOPER_DIR; };
 		0FECE29925BB276D009C662C /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.0.sdk/System/iOSSupport/System/Library/Frameworks/MetalKit.framework; sourceTree = DEVELOPER_DIR; };
@@ -215,10 +172,6 @@
 		E01C984126B44A71001BB0E3 /* cardboard_display_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cardboard_display_api.h; sourceTree = "<group>"; };
 		E0DFCFEB26B3474400F285A5 /* cardboard_input_api.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = cardboard_input_api.h; sourceTree = "<group>"; };
 		E0DFCFEC26B3474400F285A5 /* cardboard_input_api.cc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = cardboard_input_api.cc; sourceTree = "<group>"; };
-=======
-		0FD20260235761ED00B3C342 /* libprotobuf-lite.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = "libprotobuf-lite.a"; path = "../proto/libprotobuf/universal/libprotobuf-lite.a"; sourceTree = "<group>"; };
-		0FD202B92357C0F200B3C342 /* sdk.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = sdk.bundle; path = qrcode/ios/sdk.bundle; sourceTree = "<group>"; };
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -226,19 +179,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				0FECE29825BB2760009C662C /* Metal.framework in Frameworks */,
 				0FECE29A25BB276D009C662C /* MetalKit.framework in Frameworks */,
-=======
-				0F8D4FDF2361F86A00E7C48D /* libprotobuf-lite.a in Frameworks */,
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-<<<<<<< HEAD
 		0F984F7825C047860033D5C6 /* ios */ = {
 			isa = PBXGroup;
 			children = (
@@ -251,20 +199,11 @@
 			isa = PBXGroup;
 			children = (
 				7B2ADAC824E4779500FEBAA8 /* rendering */,
-=======
-		0FD2007C2357511D00B3C342 = {
-			isa = PBXGroup;
-			children = (
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				0FD202B92357C0F200B3C342 /* sdk.bundle */,
 				0FD2025E2357613600B3C342 /* cardboard_device.pb.cc */,
 				0FD2022723575F3B00B3C342 /* cardboard.cc */,
 				0FD2023D23575F3B00B3C342 /* distortion_mesh.cc */,
 				0FD2022C23575F3B00B3C342 /* distortion_mesh.h */,
-<<<<<<< HEAD
-=======
-				0FD2022823575F3B00B3C342 /* distortion_renderer.cc */,
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				0FD2020923575F3B00B3C342 /* distortion_renderer.h */,
 				0FD2020B23575F3B00B3C342 /* head_tracker.cc */,
 				0FD2022D23575F3B00B3C342 /* head_tracker.h */,
@@ -278,10 +217,7 @@
 				0FD201F823575F3A00B3C342 /* screen_params */,
 				0FD2022923575F3B00B3C342 /* screen_params.h */,
 				0FD2020C23575F3B00B3C342 /* sensors */,
-<<<<<<< HEAD
 				0FF99B2324587233001FF78F /* unity */,
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				0FD201FC23575F3A00B3C342 /* util */,
 				0FD200862357511E00B3C342 /* Products */,
 				0FD201F223575B8000B3C342 /* Frameworks */,
@@ -291,11 +227,7 @@
 		0FD200862357511E00B3C342 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				0FD200852357511E00B3C342 /* GfxPluginCardboard.a */,
-=======
-				0FD200852357511E00B3C342 /* libsdk.a */,
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -303,13 +235,8 @@
 		0FD201F223575B8000B3C342 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				0FECE29925BB276D009C662C /* MetalKit.framework */,
 				0FECE29725BB2760009C662C /* Metal.framework */,
-=======
-				0F8D4FDE2361F86A00E7C48D /* libprotobuf-lite.a */,
-				0FD20260235761ED00B3C342 /* libprotobuf-lite.a */,
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -333,12 +260,9 @@
 		0FD201FC23575F3A00B3C342 /* util */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				0F29AA61255AC3A200154BD0 /* is_initialized.cc */,
 				0F29AA60255AC3A200154BD0 /* is_initialized.h */,
 				0F2D9A572523781600BB8866 /* is_arg_null.h */,
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				0FD201FD23575F3A00B3C342 /* rotation.cc */,
 				0FD201FE23575F3A00B3C342 /* vectorutils.cc */,
 				0FD201FF23575F3A00B3C342 /* rotation.h */,
@@ -362,11 +286,6 @@
 				0FD2020E23575F3B00B3C342 /* lowpass_filter.cc */,
 				0FD2020F23575F3B00B3C342 /* median_filter.cc */,
 				0FD2021023575F3B00B3C342 /* neck_model.cc */,
-<<<<<<< HEAD
-=======
-				0FD2021123575F3B00B3C342 /* pose_prediction.cc */,
-				0FD2021223575F3B00B3C342 /* pose_prediction.h */,
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				0FD2021323575F3B00B3C342 /* sensor_fusion_ekf.cc */,
 				0FD2021423575F3B00B3C342 /* lowpass_filter.h */,
 				0FD2021523575F3B00B3C342 /* sensor_fusion_ekf.h */,
@@ -378,11 +297,7 @@
 				0FD2022023575F3B00B3C342 /* mean_filter.h */,
 				0FD2022123575F3B00B3C342 /* gyroscope_bias_estimator.cc */,
 				0FD2022223575F3B00B3C342 /* gyroscope_bias_estimator.h */,
-<<<<<<< HEAD
 				0FD2022323575F3B00B3C342 /* rotation_state.h */,
-=======
-				0FD2022323575F3B00B3C342 /* pose_state.h */,
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				0FD2022423575F3B00B3C342 /* sensor_event_producer.h */,
 				0FD2022523575F3B00B3C342 /* median_filter.h */,
 				0FD2022623575F3B00B3C342 /* mean_filter.cc */,
@@ -422,19 +337,11 @@
 		0FD2023223575F3B00B3C342 /* ios */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				0FEDA005283670070023E8C8 /* nsurl_session_data_handler.h */,
 				0FEDA004283670070023E8C8 /* nsurl_session_data_handler.mm */,
 				0FD2023323575F3B00B3C342 /* qr_scan_view_controller.mm */,
 				0FD2023423575F3B00B3C342 /* qr_code.mm */,
 				0FD2023523575F3B00B3C342 /* device_params_helper.h */,
-=======
-				0FD2023323575F3B00B3C342 /* qr_scan_view_controller.mm */,
-				0FD2023423575F3B00B3C342 /* qr_code.mm */,
-				0FD2023523575F3B00B3C342 /* device_params_helper.h */,
-				0FD2023623575F3B00B3C342 /* nsurl_connection_data_handler.h */,
-				0FD2023723575F3B00B3C342 /* nsurl_connection_data_handler.mm */,
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				0FD2023823575F3B00B3C342 /* device_params_helper.mm */,
 				0FD2023923575F3B00B3C342 /* qr_scan_view_controller.h */,
 			);
@@ -450,7 +357,6 @@
 			path = cardboard_v1;
 			sourceTree = "<group>";
 		};
-<<<<<<< HEAD
 		0FF99B2324587233001FF78F /* unity */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,8 +435,6 @@
 			path = unity;
 			sourceTree = "<group>";
 		};
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -548,11 +452,7 @@
 			);
 			name = sdk;
 			productName = sdk;
-<<<<<<< HEAD
 			productReference = 0FD200852357511E00B3C342 /* GfxPluginCardboard.a */;
-=======
-			productReference = 0FD200852357511E00B3C342 /* libsdk.a */;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -561,11 +461,7 @@
 		0FD2007D2357511D00B3C342 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-<<<<<<< HEAD
 				LastUpgradeCheck = 1220;
-=======
-				LastUpgradeCheck = 1010;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				TargetAttributes = {
 					0FD200842357511E00B3C342 = {
 						CreatedOnToolsVersion = 10.1;
@@ -578,10 +474,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
-<<<<<<< HEAD
 				Base,
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 			);
 			mainGroup = 0FD2007C2357511D00B3C342;
 			productRefGroup = 0FD200862357511E00B3C342 /* Products */;
@@ -598,29 +491,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				0F29AA5F255AC37F00154BD0 /* opengl_es3_distortion_renderer.cc in Sources */,
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				0FD2025323575F3B00B3C342 /* polynomial_radial_distortion.cc in Sources */,
 				0FD2025923575F3B00B3C342 /* distortion_mesh.cc in Sources */,
 				0FD2024623575F3B00B3C342 /* lowpass_filter.cc in Sources */,
 				0FD2024823575F3B00B3C342 /* neck_model.cc in Sources */,
 				0FD2024D23575F3B00B3C342 /* sensor_event_producer.mm in Sources */,
-<<<<<<< HEAD
 				0F29AA62255AC3A200154BD0 /* is_initialized.cc in Sources */,
 				0FD2025023575F3B00B3C342 /* mean_filter.cc in Sources */,
 				0FD2024F23575F3B00B3C342 /* gyroscope_bias_estimator.cc in Sources */,
 				0FD2023E23575F3B00B3C342 /* screen_params.mm in Sources */,
 				0FD2024B23575F3B00B3C342 /* device_gyroscope_sensor.mm in Sources */,
 				E0DFCFED26B3474400F285A5 /* cardboard_input_api.cc in Sources */,
-=======
-				0FD2025023575F3B00B3C342 /* mean_filter.cc in Sources */,
-				0FD2025623575F3B00B3C342 /* nsurl_connection_data_handler.mm in Sources */,
-				0FD2024F23575F3B00B3C342 /* gyroscope_bias_estimator.cc in Sources */,
-				0FD2023E23575F3B00B3C342 /* screen_params.mm in Sources */,
-				0FD2024B23575F3B00B3C342 /* device_gyroscope_sensor.mm in Sources */,
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				0FD2024223575F3B00B3C342 /* matrixutils.cc in Sources */,
 				0FD2025F2357613600B3C342 /* cardboard_device.pb.cc in Sources */,
 				0FD2024723575F3B00B3C342 /* median_filter.cc in Sources */,
@@ -629,7 +511,6 @@
 				0FD2024C23575F3B00B3C342 /* device_accelerometer_sensor.mm in Sources */,
 				0FD2025423575F3B00B3C342 /* qr_scan_view_controller.mm in Sources */,
 				0FD2025123575F3B00B3C342 /* cardboard.cc in Sources */,
-<<<<<<< HEAD
 				0F6BA72425CC5B7D00C1B015 /* metal_renderer.mm in Sources */,
 				7B76813A24A3FA6B00E92050 /* input.cc in Sources */,
 				7B76813B24A3FA6B00E92050 /* display.cc in Sources */,
@@ -647,16 +528,6 @@
 				0FEDA006283670070023E8C8 /* nsurl_session_data_handler.mm in Sources */,
 				0FD2024323575F3B00B3C342 /* matrix_3x3.cc in Sources */,
 				E01C984226B44A72001BB0E3 /* cardboard_display_api.cc in Sources */,
-=======
-				0FD2025723575F3B00B3C342 /* device_params_helper.mm in Sources */,
-				0FD2024023575F3B00B3C342 /* vectorutils.cc in Sources */,
-				0FD2025823575F3B00B3C342 /* cardboard_v1.cc in Sources */,
-				0FD2024923575F3B00B3C342 /* pose_prediction.cc in Sources */,
-				0FD2024E23575F3B00B3C342 /* sensor_helper.mm in Sources */,
-				0FD2025223575F3B00B3C342 /* distortion_renderer.cc in Sources */,
-				0FD2024A23575F3B00B3C342 /* sensor_fusion_ekf.cc in Sources */,
-				0FD2024323575F3B00B3C342 /* matrix_3x3.cc in Sources */,
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				0FD2024423575F3B00B3C342 /* lens_distortion.cc in Sources */,
 				0FD2025523575F3B00B3C342 /* qr_code.mm in Sources */,
 				0FD2023F23575F3B00B3C342 /* rotation.cc in Sources */,
@@ -692,10 +563,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-<<<<<<< HEAD
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -721,7 +589,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-<<<<<<< HEAD
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -730,12 +597,6 @@
 					"-Wall",
 					"-Wextra",
 				);
-=======
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -766,10 +627,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-<<<<<<< HEAD
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -789,7 +647,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-<<<<<<< HEAD
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -797,11 +654,6 @@
 					"-Wall",
 					"-Wextra",
 				);
-=======
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -810,7 +662,6 @@
 		0FD2008F2357511E00B3C342 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-<<<<<<< HEAD
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C5M9TX4B3U;
@@ -834,19 +685,6 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = GfxPluginCardboard;
-=======
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C5M9TX4B3U;
-				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)",
-					"$(PROJECT_DIR)/../proto",
-					"$(PROJECT_DIR)/../proto/libprotobuf/ios/include",
-				);
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../proto/libprotobuf/ios/lib";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -855,7 +693,6 @@
 		0FD200902357511E00B3C342 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-<<<<<<< HEAD
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C5M9TX4B3U;
@@ -878,19 +715,6 @@
 					"$(inherited)",
 				);
 				PRODUCT_NAME = GfxPluginCardboard;
-=======
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C5M9TX4B3U;
-				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = NO;
-				HEADER_SEARCH_PATHS = (
-					"$(SRCROOT)",
-					"$(PROJECT_DIR)/../proto",
-					"$(PROJECT_DIR)/../proto/libprotobuf/ios/include",
-				);
-				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/../proto/libprotobuf/ios/lib";
-				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_NAME = "$(TARGET_NAME)";
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

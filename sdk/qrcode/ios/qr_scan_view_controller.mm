@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -184,11 +180,7 @@ static const CGFloat kGuidanceHeight = 116.0f;
 
   // Add find text.
   UILabel *findLabel = [[UILabel alloc] init];
-<<<<<<< HEAD
   findLabel.text = @"Find this Cardboard symbol on your viewer";
-=======
-  findLabel.text = @"Find this symbol on your viewer";
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   findLabel.font = [UIFont systemFontOfSize:16];
   [findLabel sizeToFit];
   frame = findLabel.frame;
@@ -286,13 +278,10 @@ static const CGFloat kGuidanceHeight = 116.0f;
   return [UIApplication sharedApplication].statusBarOrientation;
 }
 
-<<<<<<< HEAD
 - (UIInterfaceOrientationMask)supportedInterfaceOrientations {
   return UIInterfaceOrientationMaskAll;
 }
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 - (AVCaptureVideoOrientation)videoOrientation {
   UIInterfaceOrientation orientation = [UIApplication sharedApplication].statusBarOrientation;
   switch (orientation) {
@@ -354,11 +343,7 @@ static const CGFloat kGuidanceHeight = 116.0f;
                             withCompletion:^(BOOL success, NSError *error) {
                               if (success) {
                                 [self finishCapture];
-<<<<<<< HEAD
                                 self->_completion(YES);
-=======
-                                _completion(YES);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
                               } else {
                                 if (error) {
                                   [self showShortMessage:[error localizedDescription]];
@@ -377,31 +362,17 @@ static const CGFloat kGuidanceHeight = 116.0f;
   }
 
   _showingHUDMessage = YES;
-<<<<<<< HEAD
   UIAlertController *alert =
       [UIAlertController alertControllerWithTitle:nil
                                           message:text
                                    preferredStyle:UIAlertControllerStyleAlert];
   [self presentViewController:alert animated:YES completion:nil];
-=======
-  UIAlertView *toast = [[UIAlertView alloc] initWithTitle:nil
-                                                  message:text
-                                                 delegate:nil
-                                        cancelButtonTitle:nil
-                                        otherButtonTitles:nil, nil];
-  [toast show];
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   int duration = 1;  // duration in seconds
 
   dispatch_after(dispatch_time(DISPATCH_TIME_NOW, duration * NSEC_PER_SEC),
                  dispatch_get_main_queue(), ^{
-<<<<<<< HEAD
                    self->_showingHUDMessage = NO;
                    [alert dismissViewControllerAnimated:YES completion:nil];
-=======
-                   _showingHUDMessage = NO;
-                   [toast dismissWithClickedButtonIndex:0 animated:YES];
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
                  });
 }
 

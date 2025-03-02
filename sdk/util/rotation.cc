@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -116,7 +112,6 @@ Rotation::VectorType Rotation::operator*(const Rotation::VectorType& v) const {
   return ApplyToVector(v);
 }
 
-<<<<<<< HEAD
 double Rotation::GetYawAngle() const {
   const double x = quat_[0];
   const double y = quat_[1];
@@ -150,6 +145,4 @@ double Rotation::GetRollAngle() const {
   return std::atan2(sinr_cosp, cosr_cosp);
 }
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }  // namespace cardboard

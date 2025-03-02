@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,7 +18,6 @@
 #import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
 
-<<<<<<< HEAD
 #import <atomic>
 
 #import "qrcode/ios/device_params_helper.h"
@@ -37,16 +32,6 @@ std::atomic<int32_t> deviceParamsChangedCount = {0};
 
 void incrementDeviceParamsChangedCount() { std::atomic_fetch_add(&deviceParamsChangedCount, 1); }
 
-=======
-#import "qrcode/ios/device_params_helper.h"
-#import "qrcode/ios/qr_scan_view_controller.h"
-
-namespace cardboard {
-namespace qrcode {
-
-namespace {
-
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 void showQRScanViewController() {
   UIViewController *presentingViewController = nil;
   presentingViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
@@ -58,12 +43,8 @@ void showQRScanViewController() {
   }
 
   __block CardboardQRScanViewController *qrViewController =
-<<<<<<< HEAD
       [[CardboardQRScanViewController alloc] initWithCompletion:^(BOOL /*succeeded*/) {
         incrementDeviceParamsChangedCount();
-=======
-      [[CardboardQRScanViewController alloc] initWithCompletion:^(BOOL succeeded) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
         [qrViewController dismissViewControllerAnimated:YES completion:nil];
       }];
 
@@ -73,11 +54,7 @@ void showQRScanViewController() {
 
 void requestPermissionInSettings() {
   NSURL *settingURL = [NSURL URLWithString:UIApplicationOpenSettingsURLString];
-<<<<<<< HEAD
   [UIApplication.sharedApplication openURL:settingURL options:@{} completionHandler:nil];
-=======
-  [UIApplication.sharedApplication openURL:settingURL];
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }
 
 void prerequestCameraPermissionForQRScan() {
@@ -122,7 +99,6 @@ void scanQrCodeAndSaveDeviceParams() {
   }
 }
 
-<<<<<<< HEAD
 void saveDeviceParams(const uint8_t *uri, int /*size*/) {
   NSString *uriAsString = [NSString stringWithUTF8String:reinterpret_cast<const char *>(uri)];
   if (![uriAsString hasPrefix:@"http://"] && ![uriAsString hasPrefix:@"https://"]) {
@@ -156,7 +132,5 @@ void saveDeviceParams(const uint8_t *uri, int /*size*/) {
 
 int getDeviceParamsChangedCount() { return deviceParamsChangedCount; }
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }  // namespace qrcode
 }  // namespace cardboard

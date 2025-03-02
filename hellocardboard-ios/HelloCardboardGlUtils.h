@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google LLC. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,10 +28,6 @@
 
 namespace cardboard {
 namespace hello_cardboard {
-<<<<<<< HEAD
-
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 /**
  * Generates a random floating point number between |min| and |max|.
  */
@@ -79,13 +71,8 @@ class TexturedMesh {
    *
    * @return True if initialization was successful.
    */
-<<<<<<< HEAD
   bool Initialize(const std::string& obj_file_path, GLuint position_attrib,
                   GLuint uv_attrib);
-=======
-  bool Initialize(std::string objFilePath, GLuint positionAttrib,
-                  GLuint uvAttrib);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
   /**
    * Draws the mesh. The u_MVP uniform should be set before calling this using
@@ -94,19 +81,11 @@ class TexturedMesh {
   void Draw() const;
 
  private:
-<<<<<<< HEAD
   std::vector<GLfloat> vertices_;
   std::vector<GLfloat> uv_;
   std::vector<GLushort> indices_;
   GLuint position_attrib_;
   GLuint uv_attrib_;
-=======
-  std::vector<GLfloat> _vertices;
-  std::vector<GLfloat> _uv;
-  std::vector<GLushort> _indices;
-  GLuint _positionAttrib;
-  GLuint _uvAttrib;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 };
 
 /**
@@ -126,11 +105,7 @@ class Texture {
    *
    * @return True if initialization was successful.
    */
-<<<<<<< HEAD
   bool Initialize(const std::string& image_name);
-=======
-  bool Initialize(std::string imageName);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
   /**
    * Binds the texture, replacing any previously bound texture.
@@ -138,11 +113,7 @@ class Texture {
   void Bind() const;
 
  private:
-<<<<<<< HEAD
   GLuint texture_id_;
-=======
-  GLuint _textureId;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 };
 
 }  // namespace hello_cardboard

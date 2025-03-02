@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -38,29 +34,17 @@ template <typename T>
 struct DeviceSensor {};
 
 template <>
-<<<<<<< HEAD
 struct DeviceSensor<AccelerometerData> {
-=======
-struct cardboard::DeviceSensor<AccelerometerData> {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   std::unique_ptr<DeviceAccelerometerSensor> value;
 };
 
 template <>
-<<<<<<< HEAD
 struct DeviceSensor<GyroscopeData> {
-=======
-struct cardboard::DeviceSensor<GyroscopeData> {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   std::unique_ptr<DeviceGyroscopeSensor> value;
 };
 
 template <typename DataType>
-<<<<<<< HEAD
 struct SensorEventProducer<DataType>::EventProducer {
-=======
-struct cardboard::SensorEventProducer<DataType>::EventProducer {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   EventProducer() : run_thread(false) {}
 
   // Sensor to poll for data.

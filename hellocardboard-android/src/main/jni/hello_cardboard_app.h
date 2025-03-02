@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,10 +25,6 @@
 #include <thread>
 #include <vector>
 
-<<<<<<< HEAD
-=======
-#include <EGL/egl.h>
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 #include <GLES2/gl2.h>
 #include "cardboard.h"
 #include "util.h"
@@ -99,7 +91,6 @@ class HelloCardboardApp {
 
  private:
   /**
-<<<<<<< HEAD
    * Default near clip plane z-axis coordinate.
    */
   static constexpr float kZNear = 0.1f;
@@ -110,8 +101,6 @@ class HelloCardboardApp {
   static constexpr float kZFar = 100.f;
 
   /**
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
    * Updates device parameters, if necessary.
    *
    * @return true if device parameters were successfully updated.

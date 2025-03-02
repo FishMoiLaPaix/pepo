@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 /* Copyright 2019 Google LLC
-=======
-/* Copyright 2019 Google LLC. All rights reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -67,7 +63,6 @@ class HelloCardboardRenderer {
   int CreateTexture(int width, int height, int textureFormat, int textureType);
 
   /**
-<<<<<<< HEAD
    * Gets head's pose as a 4x4 matrix.
    *
    * @return matrix containing head's pose.
@@ -75,8 +70,6 @@ class HelloCardboardRenderer {
   GLKMatrix4 GetPose();
 
   /**
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
    * Draws all world-space objects for an eye.
    *
    * @param viewMatrix View matrix for an eye.

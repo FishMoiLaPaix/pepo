@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google LLC. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,14 +24,9 @@
   CardboardLensDistortion *_cardboardLensDistortion;
   CardboardHeadTracker *_cardboardHeadTracker;
   std::unique_ptr<cardboard::hello_cardboard::HelloCardboardRenderer> _renderer;
-<<<<<<< HEAD
 
   // This counter keeps track of the successful device parameters save operations count.
   int _deviceParamsChangedCount;
-=======
-  BOOL _isPaused;
-  BOOL _updateParams;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }
 @end
 
@@ -81,14 +72,9 @@
   // Create cardboard head tracker.
   _cardboardHeadTracker = CardboardHeadTracker_create();
   _cardboardLensDistortion = nil;
-<<<<<<< HEAD
 
   // Set the counter to -1 to force a device params update.
   _deviceParamsChangedCount = -1;
-=======
-  _updateParams = YES;
-  _isPaused = NO;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }
 
 - (void)viewDidAppear:(BOOL)animated {
@@ -96,10 +82,7 @@
   if (@available(iOS 11.0, *)) {
     [self setNeedsUpdateOfHomeIndicatorAutoHidden];
   }
-<<<<<<< HEAD
   [self resumeCardboard];
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }
 
 - (BOOL)prefersHomeIndicatorAutoHidden {
@@ -112,11 +95,7 @@
 }
 
 - (void)glkView:(GLKView *)view drawInRect:(CGRect)rect {
-<<<<<<< HEAD
   if (![self updateDeviceParams]) {
-=======
-  if (_updateParams) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     return;
   }
 
@@ -127,7 +106,6 @@
   // Perform GL state update before drawing.
 }
 
-<<<<<<< HEAD
 - (BOOL)deviceParamsChanged {
   return _deviceParamsChangedCount != CardboardQrCode_getDeviceParamsChangedCount();
 }
@@ -138,31 +116,10 @@
     return YES;
   }
 
-=======
-- (void)glkViewController:(GLKViewController *)controller willPause:(BOOL)pause {
-  // Doesn't execute the lifecycle code if it's not changing its state.
-  if (_isPaused == pause) {
-    return;
-  }
-  _isPaused = pause;
-
-  if (pause) {
-    CardboardHeadTracker_pause(_cardboardHeadTracker);
-  } else {
-    if (_updateParams) {
-      [self updateCardboardParams];
-    }
-    CardboardHeadTracker_resume(_cardboardHeadTracker);
-  }
-}
-
-- (void)updateCardboardParams {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   uint8_t *encodedDeviceParams;
   int size;
   CardboardQrCode_getSavedDeviceParams(&encodedDeviceParams, &size);
 
-<<<<<<< HEAD
   if (size == 0) {
     return NO;
   }
@@ -219,37 +176,6 @@
 
 - (void)switchViewer {
   CardboardQrCode_scanQrCodeAndSaveDeviceParams();
-=======
-  if (size != 0) {
-    // Using native scale as we are rendering directly to the screen.
-    CGRect screenRect = self.view.bounds;
-    CGFloat screenScale = UIScreen.mainScreen.nativeScale;
-    int height = screenRect.size.height * screenScale;
-    int width = screenRect.size.width * screenScale;
-
-    // Rendering coordinates asumes landscape orientation.
-    if (height > width) {
-      int temp = height;
-      height = width;
-      width = temp;
-    }
-
-    // Create CardboardLensDistortion.
-    CardboardLensDistortion_destroy(_cardboardLensDistortion);
-    _cardboardLensDistortion =
-        CardboardLensDistortion_create(encodedDeviceParams, size, width, height);
-
-    // Initialize HelloCardboardRenderer.
-    _renderer.reset(new cardboard::hello_cardboard::HelloCardboardRenderer(_cardboardLensDistortion,
-                                                             _cardboardHeadTracker, width, height));
-    _renderer->InitializeGl();
-    _updateParams = NO;
-  } else {
-    _updateParams = YES;
-    [self didChangeViewerProfile];
-  }
-  CardboardQrCode_destroy(encodedDeviceParams);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }
 
 - (void)didTapGLView:(id)sender {
@@ -269,14 +195,9 @@
 }
 
 - (void)didChangeViewerProfile {
-<<<<<<< HEAD
   [self pauseCardboard];
   [self switchViewer];
   [self resumeCardboard];
-=======
-  CardboardQrCode_scanQrCodeAndSaveDeviceParams();
-  _updateParams = YES;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }
 
 @end

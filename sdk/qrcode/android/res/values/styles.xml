@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-<<<<<<< HEAD
-=======
-    <!-- QR code capture activity theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <item name="colorPrimary">@color/color_primary</item>
-        <item name="colorPrimaryDark">@color/color_primary_dark</item>
-        <item name="colorAccent">@color/color_accent</item>
-        <item name="icon">@android:color/transparent</item>
-        <item name="android:windowContentOverlay">@null</item>
-    </style>
-
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     <style name="text_16sp_sans_serif">
         <item name="android:textSize">16sp</item>
         <item name="android:fontFamily">sans-serif</item>
@@ -27,8 +15,4 @@
         <item name="android:layout_height">match_parent</item>
         <item name="android:background">@android:color/darker_gray</item>
     </style>
-<<<<<<< HEAD
 </resources>
-=======
-</resources>
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)

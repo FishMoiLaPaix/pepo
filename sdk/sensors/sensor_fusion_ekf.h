@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,21 +19,14 @@
 #include <array>
 #include <atomic>
 #include <cstdint>
-<<<<<<< HEAD
 #include <memory>
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 #include <mutex>  // NOLINT
 
 #include "sensors/accelerometer_data.h"
 #include "sensors/gyroscope_bias_estimator.h"
 #include "sensors/gyroscope_data.h"
-<<<<<<< HEAD
 #include "sensors/lowpass_filter.h"
 #include "sensors/rotation_state.h"
-=======
-#include "sensors/pose_state.h"
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 #include "util/matrix_3x3.h"
 #include "util/rotation.h"
 #include "util/vector.h"
@@ -46,13 +35,8 @@ namespace cardboard {
 
 // Sensor fusion class that implements an Extended Kalman Filter (EKF) to
 // estimate a 3D rotation from a gyroscope and an accelerometer.
-<<<<<<< HEAD
 // This system only has one state, the rotation. It does not estimate any
 // velocity or acceleration.
-=======
-// This system only has one state, the pose. It does not estimate any velocity
-// or acceleration.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 //
 // To learn more about Kalman filtering one can read this article which is a
 // good introduction: https://en.wikipedia.org/wiki/Kalman_filter
@@ -66,7 +50,6 @@ class SensorFusionEkf {
   // accelerometer sample arrives.
   void Reset();
 
-<<<<<<< HEAD
   // Gets the RotationState representing the latest rotation and angular
   // velocity at a particular timestamp as estimated by SensorFusion.
   RotationState GetLatestRotationState() const;
@@ -86,31 +69,17 @@ class SensorFusionEkf {
   // system and the prediction model. The gyroscope data is assumed to be in
   // axis angle form. Angle = ||v|| and Axis = v / ||v||, with
   // v = [v_x, v_y, v_z]^T.
-=======
-  // Gets the PoseState representing the latest pose and  derivatives at a
-  // particular timestamp as estimated by SensorFusion.
-  PoseState GetLatestPoseState() const;
-
-  // Processes one gyroscope sample event. This updates the pose of the system
-  // and the prediction model. The gyroscope data is assumed to be in axis angle
-  // form. Angle = ||v|| and Axis = v / ||v||, with v = [v_x, v_y, v_z]^T.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   //
   // @param sample gyroscope sample data.
   void ProcessGyroscopeSample(const GyroscopeData& sample);
 
-<<<<<<< HEAD
   // Processes one accelerometer sample event. This updates the rotation of the
-=======
-  // Processes one accelerometer sample event. This updates the pose of the
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   // system. If the Accelerometer norm changes too much between sample it is not
   // trusted as much.
   //
   // @param sample accelerometer sample data.
   void ProcessAccelerometerSample(const AccelerometerData& sample);
 
-<<<<<<< HEAD
   // Rotates the current transformation from Sensor Space to Start Space.
   //
   // @details The current state space rotation is post-multiplied by
@@ -127,27 +96,6 @@ class SensorFusionEkf {
   // @param cutoff_frequency Cutoff frequency for the low-pass filter of the
   // head tracker.
   void SetLowPassFilter(int velocity_filter_cutoff_frequency);
-=======
-  // Enables or disables the drift correction by estimating the gyroscope bias.
-  //
-  // @param enable Enable drift correction.
-  void SetBiasEstimationEnabled(bool enable);
-
-  // Returns a boolean that indicates if bias estimation is enabled or disabled.
-  //
-  // @return true if bias estimation is enabled, false otherwise.
-  bool IsBiasEstimationEnabled() const;
-
-  // Returns the current gyroscope bias estimate from GyroscopeBiasEstimator.
-  Vector3 GetGyroscopeBias() const {
-    std::unique_lock<std::mutex> lock(mutex_);
-    return {gyroscope_bias_estimate_[0], gyroscope_bias_estimate_[1],
-            gyroscope_bias_estimate_[2]};
-  }
-
-  // Returns true after receiving the first accelerometer measurement.
-  bool IsFullyInitialized() const { return is_aligned_with_gravity_; }
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
  private:
   // Estimates the average timestep between gyroscope event.
@@ -157,17 +105,10 @@ class SensorFusionEkf {
   // space of the quadric.
   void UpdateStateCovariance(const Matrix3x3& motion_update);
 
-<<<<<<< HEAD
   // Computes the innovation vector of the Kalman based on the input rotation.
   // It uses the latest measurement vector (i.e. accelerometer data), which must
   // be set prior to calling this function.
   Vector3 ComputeInnovation(const Rotation& rotation_in);
-=======
-  // Computes the innovation vector of the Kalman based on the input pose.
-  // It uses the latest measurement vector (i.e. accelerometer data), which must
-  // be set prior to calling this function.
-  Vector3 ComputeInnovation(const Rotation& pose);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
   // This computes the measurement_jacobian_ via numerical differentiation based
   // on the current value of sensor_from_start_rotation_.
@@ -186,11 +127,7 @@ class SensorFusionEkf {
 
   // Current transformation from Sensor Space to Start Space.
   // x_sensor = sensor_from_start_rotation_ * x_start;
-<<<<<<< HEAD
   RotationState current_state_;
-=======
-  PoseState current_state_;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
   // Filtering of the gyroscope timestep started?
   bool is_timestep_filter_initialized_;
@@ -246,24 +183,15 @@ class SensorFusionEkf {
 
   mutable std::mutex mutex_;
 
-<<<<<<< HEAD
-=======
-  // Flag indicating if bias estimation is enabled (enabled by default).
-  std::atomic<bool> bias_estimation_enabled_;
-
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   // Bias estimator and static device detector.
   GyroscopeBiasEstimator gyroscope_bias_estimator_;
 
   // Current bias estimate_;
   Vector3 gyroscope_bias_estimate_;
 
-<<<<<<< HEAD
   // Filter to smooth velocity vector
   std::unique_ptr<LowpassFilter> velocity_filter_;
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   SensorFusionEkf(const SensorFusionEkf&) = delete;
   SensorFusionEkf& operator=(const SensorFusionEkf&) = delete;
 };

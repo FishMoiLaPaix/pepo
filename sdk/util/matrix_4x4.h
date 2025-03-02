@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +20,6 @@
 
 namespace cardboard {
 
-<<<<<<< HEAD
 // The Matrix4x4 class defines a square 4-dimensional matrix. Elements are
 // stored in row-major order.
 class Matrix4x4 {
@@ -55,15 +50,6 @@ class Matrix4x4 {
 
   // @brief Copies into @p array the contents of `this` matrix.
   // @param[out] array A pointer to a float array of size 16.
-=======
-class Matrix4x4 {
- public:
-  static Matrix4x4 Identity();
-  static Matrix4x4 Zeros();
-  static Matrix4x4 Translation(float x, float y, float z);
-  static Matrix4x4 Perspective(const std::array<float, 4>& fov, float zNear,
-                               float zFar);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   void ToArray(float* array) const;
 
  private:

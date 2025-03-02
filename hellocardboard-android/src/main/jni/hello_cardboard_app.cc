@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,11 +24,8 @@
 #include <cmath>
 #include <fstream>
 
-<<<<<<< HEAD
 #include "cardboard.h"
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 namespace ndk_hello_cardboard {
 
 namespace {
@@ -47,12 +40,9 @@ constexpr float kMaxTargetHeight = kMinTargetHeight + 3.0f;
 
 constexpr float kDefaultFloorHeight = -1.7f;
 
-<<<<<<< HEAD
 // 6 Hz cutoff frequency for the velocity filter of the head tracker.
 constexpr int kVelocityFilterCutoffFrequency = 6;
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 constexpr uint64_t kPredictionTimeWithoutVsyncNanos = 50000000;
 
 // Angle threshold for determining whether the controller is pointing at the
@@ -63,11 +53,7 @@ constexpr float kAngleLimit = 0.2f;
 constexpr int kTargetMeshCount = 3;
 
 // Simple shaders to render .obj files without any lighting.
-<<<<<<< HEAD
 constexpr const char* kObjVertexShader =
-=======
-constexpr const char* kObjVertexShaders =
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     R"glsl(
     uniform mat4 u_MVP;
     attribute vec4 a_Position;
@@ -79,20 +65,12 @@ constexpr const char* kObjVertexShaders =
       gl_Position = u_MVP * a_Position;
     })glsl";
 
-<<<<<<< HEAD
 constexpr const char* kObjFragmentShader =
     R"glsl(
     precision mediump float;
 
     uniform sampler2D u_Texture;
     varying vec2 v_UV;
-=======
-constexpr const char* kObjFragmentShaders =
-    R"glsl(
-    precision mediump float;
-    varying vec2 v_UV;
-    uniform sampler2D u_Texture;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
     void main() {
       // The y coordinate of this sample's textures is reversed compared to
@@ -102,12 +80,8 @@ constexpr const char* kObjFragmentShaders =
 
 }  // anonymous namespace
 
-<<<<<<< HEAD
 HelloCardboardApp::HelloCardboardApp(JavaVM* vm, jobject obj,
                                      jobject asset_mgr_obj)
-=======
-HelloCardboardApp::HelloCardboardApp(JavaVM* vm, jobject obj, jobject asset_mgr_obj)
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     : head_tracker_(nullptr),
       lens_distortion_(nullptr),
       distortion_renderer_(nullptr),
@@ -133,11 +107,8 @@ HelloCardboardApp::HelloCardboardApp(JavaVM* vm, jobject obj, jobject asset_mgr_
 
   Cardboard_initializeAndroid(vm, obj);
   head_tracker_ = CardboardHeadTracker_create();
-<<<<<<< HEAD
   CardboardHeadTracker_setLowPassFilter(head_tracker_,
                                         kVelocityFilterCutoffFrequency);
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }
 
 HelloCardboardApp::~HelloCardboardApp() {
@@ -148,15 +119,9 @@ HelloCardboardApp::~HelloCardboardApp() {
 
 void HelloCardboardApp::OnSurfaceCreated(JNIEnv* env) {
   const int obj_vertex_shader =
-<<<<<<< HEAD
       LoadGLShader(GL_VERTEX_SHADER, kObjVertexShader);
   const int obj_fragment_shader =
       LoadGLShader(GL_FRAGMENT_SHADER, kObjFragmentShader);
-=======
-      LoadGLShader(GL_VERTEX_SHADER, kObjVertexShaders);
-  const int obj_fragment_shader =
-      LoadGLShader(GL_FRAGMENT_SHADER, kObjFragmentShaders);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
   obj_program_ = glCreateProgram();
   glAttachShader(obj_program_, obj_vertex_shader);
@@ -172,41 +137,24 @@ void HelloCardboardApp::OnSurfaceCreated(JNIEnv* env) {
 
   CHECKGLERROR("Obj program params");
 
-<<<<<<< HEAD
   HELLOCARDBOARD_CHECK(room_.Initialize(obj_position_param_, obj_uv_param_,
                                         "CubeRoom.obj", asset_mgr_));
   HELLOCARDBOARD_CHECK(
       room_tex_.Initialize(env, java_asset_mgr_, "CubeRoom_BakedDiffuse.png"));
   HELLOCARDBOARD_CHECK(target_object_meshes_[0].Initialize(
       obj_position_param_, obj_uv_param_, "Icosahedron.obj", asset_mgr_));
-=======
-  HELLOCARDBOARD_CHECK(room_.Initialize(env, asset_mgr_, "CubeRoom.obj",
-                                 obj_position_param_, obj_uv_param_));
-  HELLOCARDBOARD_CHECK(
-      room_tex_.Initialize(env, java_asset_mgr_, "CubeRoom_BakedDiffuse.png"));
-  HELLOCARDBOARD_CHECK(target_object_meshes_[0].Initialize(
-      env, asset_mgr_, "Icosahedron.obj", obj_position_param_, obj_uv_param_));
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   HELLOCARDBOARD_CHECK(target_object_not_selected_textures_[0].Initialize(
       env, java_asset_mgr_, "Icosahedron_Blue_BakedDiffuse.png"));
   HELLOCARDBOARD_CHECK(target_object_selected_textures_[0].Initialize(
       env, java_asset_mgr_, "Icosahedron_Pink_BakedDiffuse.png"));
   HELLOCARDBOARD_CHECK(target_object_meshes_[1].Initialize(
-<<<<<<< HEAD
       obj_position_param_, obj_uv_param_, "QuadSphere.obj", asset_mgr_));
-=======
-      env, asset_mgr_, "QuadSphere.obj", obj_position_param_, obj_uv_param_));
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   HELLOCARDBOARD_CHECK(target_object_not_selected_textures_[1].Initialize(
       env, java_asset_mgr_, "QuadSphere_Blue_BakedDiffuse.png"));
   HELLOCARDBOARD_CHECK(target_object_selected_textures_[1].Initialize(
       env, java_asset_mgr_, "QuadSphere_Pink_BakedDiffuse.png"));
   HELLOCARDBOARD_CHECK(target_object_meshes_[2].Initialize(
-<<<<<<< HEAD
       obj_position_param_, obj_uv_param_, "TriSphere.obj", asset_mgr_));
-=======
-      env, asset_mgr_, "TriSphere.obj", obj_position_param_, obj_uv_param_));
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   HELLOCARDBOARD_CHECK(target_object_not_selected_textures_[2].Initialize(
       env, java_asset_mgr_, "TriSphere_Blue_BakedDiffuse.png"));
   HELLOCARDBOARD_CHECK(target_object_selected_textures_[2].Initialize(
@@ -265,16 +213,10 @@ void HelloCardboardApp::OnDrawFrame() {
   }
 
   // Render
-<<<<<<< HEAD
   CardboardDistortionRenderer_renderEyeToDisplay(
       distortion_renderer_, /* target_display = */ 0, /* x = */ 0, /* y = */ 0,
       screen_width_, screen_height_, &left_eye_texture_description_,
       &right_eye_texture_description_);
-=======
-  CardboardDestortionRenderer_renderEyeToDisplay(
-      distortion_renderer_, 0, screen_width_, screen_height_,
-      &left_eye_texture_description_, &right_eye_texture_description_);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
   CHECKGLERROR("onDrawFrame");
 }
@@ -325,25 +267,16 @@ bool HelloCardboardApp::UpdateDeviceParams() {
   }
 
   CardboardLensDistortion_destroy(lens_distortion_);
-<<<<<<< HEAD
   lens_distortion_ = CardboardLensDistortion_create(buffer, size, screen_width_,
                                                     screen_height_);
-=======
-  lens_distortion_ = CardboardLensDistortion_create(
-      buffer, size, screen_width_, screen_height_);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
   CardboardQrCode_destroy(buffer);
 
   GlSetup();
 
   CardboardDistortionRenderer_destroy(distortion_renderer_);
-<<<<<<< HEAD
   const CardboardOpenGlEsDistortionRendererConfig config{kGlTexture2D};
   distortion_renderer_ = CardboardOpenGlEs2DistortionRenderer_create(&config);
-=======
-  distortion_renderer_ = CardboardDistortionRenderer_create();
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
   CardboardMesh left_mesh;
   CardboardMesh right_mesh;
@@ -357,7 +290,6 @@ bool HelloCardboardApp::UpdateDeviceParams() {
                                       kRight);
 
   // Get eye matrices
-<<<<<<< HEAD
   CardboardLensDistortion_getEyeFromHeadMatrix(lens_distortion_, kLeft,
                                                eye_matrices_[0]);
   CardboardLensDistortion_getEyeFromHeadMatrix(lens_distortion_, kRight,
@@ -366,12 +298,6 @@ bool HelloCardboardApp::UpdateDeviceParams() {
                                               kZFar, projection_matrices_[0]);
   CardboardLensDistortion_getProjectionMatrix(lens_distortion_, kRight, kZNear,
                                               kZFar, projection_matrices_[1]);
-=======
-  CardboardLensDistortion_getEyeMatrices(
-      lens_distortion_, projection_matrices_[0], eye_matrices_[0], kLeft);
-  CardboardLensDistortion_getEyeMatrices(
-      lens_distortion_, projection_matrices_[1], eye_matrices_[1], kRight);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
   screen_params_changed_ = false;
   device_params_changed_ = false;
@@ -400,20 +326,12 @@ void HelloCardboardApp::GlSetup() {
                GL_RGB, GL_UNSIGNED_BYTE, 0);
 
   left_eye_texture_description_.texture = texture_;
-<<<<<<< HEAD
-=======
-  left_eye_texture_description_.layer = 0;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   left_eye_texture_description_.left_u = 0;
   left_eye_texture_description_.right_u = 0.5;
   left_eye_texture_description_.top_v = 1;
   left_eye_texture_description_.bottom_v = 0;
 
   right_eye_texture_description_.texture = texture_;
-<<<<<<< HEAD
-=======
-  right_eye_texture_description_.layer = 0;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   right_eye_texture_description_.left_u = 0.5;
   right_eye_texture_description_.right_u = 1;
   right_eye_texture_description_.top_v = 1;
@@ -454,16 +372,9 @@ void HelloCardboardApp::GlTeardown() {
 Matrix4x4 HelloCardboardApp::GetPose() {
   std::array<float, 4> out_orientation;
   std::array<float, 3> out_position;
-<<<<<<< HEAD
   CardboardHeadTracker_getPose(
       head_tracker_, GetBootTimeNano() + kPredictionTimeWithoutVsyncNanos,
       kLandscapeLeft, &out_position[0], &out_orientation[0]);
-=======
-  long monotonic_time_nano = GetMonotonicTimeNano();
-  monotonic_time_nano += kPredictionTimeWithoutVsyncNanos;
-  CardboardHeadTracker_getPose(head_tracker_, monotonic_time_nano,
-                               &out_position[0], &out_orientation[0]);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   return GetTranslationMatrix(out_position) *
          Quatf::FromXYZW(&out_orientation[0]).ToMatrix();
 }

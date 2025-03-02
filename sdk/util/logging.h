@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,13 +21,9 @@
 #import <os/log.h>
 
 #define CARDBOARD_LOGI(...) os_log_info(OS_LOG_DEFAULT, __VA_ARGS__)
-<<<<<<< HEAD
 #define CARDBOARD_LOGD(...) os_log_debug(OS_LOG_DEFAULT, __VA_ARGS__)
 #define CARDBOARD_LOGE(...) os_log_error(OS_LOG_DEFAULT, __VA_ARGS__)
 #define CARDBOARD_LOGF(...) os_log_fault(OS_LOG_DEFAULT, __VA_ARGS__)
-=======
-#define CARDBOARD_LOGE(...) os_log_error(OS_LOG_DEFAULT, __VA_ARGS__)
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
 #elif defined(__ANDROID__)
 
@@ -39,7 +31,6 @@
 
 #define CARDBOARD_LOGI(...) \
   __android_log_print(ANDROID_LOG_INFO, "CardboardSDK", __VA_ARGS__)
-<<<<<<< HEAD
 #define CARDBOARD_LOGD(...) \
   __android_log_print(ANDROID_LOG_DEBUG, "CardboardSDK", __VA_ARGS__)
 #define CARDBOARD_LOGE(...) \
@@ -55,15 +46,6 @@
 #define CARDBOARD_LOGD(...) fprintf(stdout, __VA_ARGS__)
 #define CARDBOARD_LOGE(...) fprintf(stderr, __VA_ARGS__)
 #define CARDBOARD_LOGF(...) fprintf(stderr, __VA_ARGS__)
-=======
-#define CARDBOARD_LOGE(...) \
-  __android_log_print(ANDROID_LOG_ERROR, "CardboardSDK", __VA_ARGS__)
-
-#else
-
-#define CARDBOARD_LOGI(...)
-#define CARDBOARD_LOGE(...)
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
 #endif
 

@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,17 +20,10 @@
 #include <stddef.h>
 
 #include <memory>
-<<<<<<< HEAD
 
 #include "sensors/accelerometer_data.h"
 #include "sensors/gyroscope_data.h"
 #include "util/constants.h"
-=======
-#include <mutex>  // NOLINT
-
-#include "sensors/accelerometer_data.h"
-#include "sensors/gyroscope_data.h"
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 #include "util/logging.h"
 
 // Workaround to avoid the inclusion of "android_native_app_glue.h.
@@ -98,11 +87,7 @@ const ASensor* InitSensor(ASensorManager* sensor_manager) {
 
 bool PollLooper(int timeout_ms, int* num_events) {
   void* source = nullptr;
-<<<<<<< HEAD
   const int looper_id = ALooper_pollOnce(timeout_ms, NULL, num_events,
-=======
-  const int looper_id = ALooper_pollAll(timeout_ms, NULL, num_events,
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
                                         reinterpret_cast<void**>(&source));
   if (looper_id != LOOPER_ID_USER) {
     return false;
@@ -156,37 +141,15 @@ class SensorEventQueueReader {
 
 // This struct holds android gyroscope specific sensor information.
 struct DeviceGyroscopeSensor::SensorInfo {
-<<<<<<< HEAD
   SensorInfo() : sensor_manager(nullptr), sensor(nullptr) {}
   ASensorManager* sensor_manager;
   const ASensor* sensor;
   std::unique_ptr<SensorEventQueueReader> reader;
-=======
-  SensorInfo()
-      : sensor_manager(nullptr), sensor(nullptr), first_gyro_value(true) {}
-  ASensorManager* sensor_manager;
-  const ASensor* sensor;
-  std::unique_ptr<SensorEventQueueReader> reader;
-  // In the first frame gyro system calibration will get written to the
-  // initial_system_gyro_bias_ member variable.
-  bool first_gyro_value;
-
-  // The initial System gyro bias values provided when gyro is set to
-  // ASENSOR_TYPE_GYRO_UNCALIBRATED.
-  static Vector3 initial_system_gyro_bias;
-  static std::mutex gyro_bias_mutex;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 };
 
 namespace {
 
-<<<<<<< HEAD
 bool ParseGyroEvent(const ASensorEvent& event, GyroscopeData* sample) {
-=======
-bool ParseGyroEvent(const ASensorEvent& event,
-                    DeviceGyroscopeSensor::SensorInfo* sensor_info,
-                    GyroscopeData* sample) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   if (event.type == ASENSOR_TYPE_ADDITIONAL_INFO) {
     CARDBOARD_LOGI("ParseGyroEvent discarding additional info sensor event");
     return false;
@@ -203,21 +166,6 @@ bool ParseGyroEvent(const ASensorEvent& event,
   } else if (event.type == ASENSOR_TYPE_GYROSCOPE_UNCALIBRATED) {
     // This is a special case when it is possible to initialize to
     // ASENSOR_TYPE_GYROSCOPE_UNCALIBRATED
-<<<<<<< HEAD
-=======
-    if (sensor_info->first_gyro_value) {
-      // The initial gyro bias values are present as specified in the
-      // Android sensor documentation.
-      std::lock_guard<std::mutex> lock(sensor_info->gyro_bias_mutex);
-      sensor_info->initial_system_gyro_bias = {event.data[3], event.data[4],
-                                               event.data[5]};
-      sensor_info->first_gyro_value = false;
-      CARDBOARD_LOGI("Android gyro bias is: %f, %f, %f",
-                     sensor_info->initial_system_gyro_bias[0],
-                     sensor_info->initial_system_gyro_bias[1],
-                     sensor_info->initial_system_gyro_bias[2]);
-    }
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     sample->data = {event.vector.x, event.vector.y, event.vector.z};
     return true;
   } else {
@@ -230,7 +178,6 @@ bool ParseGyroEvent(const ASensorEvent& event,
 
 }  // namespace
 
-<<<<<<< HEAD
 DeviceGyroscopeSensor::DeviceGyroscopeSensor()
     : sensor_info_(new SensorInfo()) {
 #if __ANDROID_MIN_SDK_VERSION__ >= 26
@@ -240,21 +187,6 @@ DeviceGyroscopeSensor::DeviceGyroscopeSensor()
   // TODO: b/314792983 - Remove deprecated NDK methods.
   sensor_info_->sensor_manager = ASensorManager_getInstance();
 #endif
-=======
-// Defines the static variable.
-Vector3 DeviceGyroscopeSensor::SensorInfo::initial_system_gyro_bias = {0, 0, 0};
-std::mutex DeviceGyroscopeSensor::SensorInfo::gyro_bias_mutex;
-
-// This function returns gyroscope initial system bias
-Vector3 DeviceGyroscopeSensor::GetInitialSystemBias() {
-  std::lock_guard<std::mutex> lock(SensorInfo::gyro_bias_mutex);
-  return SensorInfo::initial_system_gyro_bias;
-}
-
-DeviceGyroscopeSensor::DeviceGyroscopeSensor()
-    : sensor_info_(new SensorInfo()) {
-  sensor_info_->sensor_manager = ASensorManager_getInstance();
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   sensor_info_->sensor = InitSensor(sensor_info_->sensor_manager);
   if (!sensor_info_->sensor) {
     return;
@@ -276,11 +208,7 @@ void DeviceGyroscopeSensor::PollForSensorData(
   }
   do {
     GyroscopeData sample;
-<<<<<<< HEAD
     if (ParseGyroEvent(event, &sample)) {
-=======
-    if (ParseGyroEvent(event, sensor_info_.get(), &sample)) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
       results->push_back(sample);
     }
   } while (sensor_info_->reader->ReadEvent(&event));

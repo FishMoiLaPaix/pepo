@@ -11,7 +11,6 @@
 #include <google/protobuf/io/zero_copy_stream_impl_lite.h>
 // @@protoc_insertion_point(includes)
 #include <google/protobuf/port_def.inc>
-<<<<<<< HEAD
 
 PROTOBUF_PRAGMA_INIT_SEG
 namespace cardboard {
@@ -38,28 +37,6 @@ struct DeviceParamsDefaultTypeInternal {
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT DeviceParamsDefaultTypeInternal _DeviceParams_default_instance_;
 }  // namespace cardboard
-=======
-namespace cardboard {
-class DeviceParamsDefaultTypeInternal {
- public:
-  ::PROTOBUF_NAMESPACE_ID::internal::ExplicitlyConstructed<DeviceParams> _instance;
-} _DeviceParams_default_instance_;
-}  // namespace cardboard
-static void InitDefaultsscc_info_DeviceParams_cardboard_5fdevice_2eproto() {
-  GOOGLE_PROTOBUF_VERIFY_VERSION;
-
-  {
-    void* ptr = &::cardboard::_DeviceParams_default_instance_;
-    new (ptr) ::cardboard::DeviceParams();
-    ::PROTOBUF_NAMESPACE_ID::internal::OnShutdownDestroyMessage(ptr);
-  }
-  ::cardboard::DeviceParams::InitAsDefaultInstance();
-}
-
-::PROTOBUF_NAMESPACE_ID::internal::SCCInfo<0> scc_info_DeviceParams_cardboard_5fdevice_2eproto =
-    {{ATOMIC_VAR_INIT(::PROTOBUF_NAMESPACE_ID::internal::SCCInfoBase::kUninitialized), 0, 0, InitDefaultsscc_info_DeviceParams_cardboard_5fdevice_2eproto}, {}};
-
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 namespace cardboard {
 bool DeviceParams_VerticalAlignmentType_IsValid(int value) {
   switch (value) {
@@ -107,11 +84,7 @@ const std::string& DeviceParams_VerticalAlignmentType_Name(
                      DeviceParams_VerticalAlignmentType_strings[idx].get();
 }
 bool DeviceParams_VerticalAlignmentType_Parse(
-<<<<<<< HEAD
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, DeviceParams_VerticalAlignmentType* value) {
-=======
-    const std::string& name, DeviceParams_VerticalAlignmentType* value) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   int int_value;
   bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
       DeviceParams_VerticalAlignmentType_entries, 3, name, &int_value);
@@ -178,11 +151,7 @@ const std::string& DeviceParams_ButtonType_Name(
                      DeviceParams_ButtonType_strings[idx].get();
 }
 bool DeviceParams_ButtonType_Parse(
-<<<<<<< HEAD
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, DeviceParams_ButtonType* value) {
-=======
-    const std::string& name, DeviceParams_ButtonType* value) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   int int_value;
   bool success = ::PROTOBUF_NAMESPACE_ID::internal::LookUpEnumValue(
       DeviceParams_ButtonType_entries, 4, name, &int_value);
@@ -203,11 +172,6 @@ constexpr int DeviceParams::ButtonType_ARRAYSIZE;
 
 // ===================================================================
 
-<<<<<<< HEAD
-=======
-void DeviceParams::InitAsDefaultInstance() {
-}
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 class DeviceParams::_Internal {
  public:
   using HasBits = decltype(std::declval<DeviceParams>()._has_bits_);
@@ -234,7 +198,6 @@ class DeviceParams::_Internal {
   }
 };
 
-<<<<<<< HEAD
 DeviceParams::DeviceParams(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::MessageLite(arena, is_message_owned),
@@ -261,27 +224,6 @@ DeviceParams::DeviceParams(const DeviceParams& from)
   if (from._internal_has_model()) {
     model_.Set(::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::EmptyDefault{}, from._internal_model(), 
       GetArenaForAllocation());
-=======
-DeviceParams::DeviceParams()
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(), _internal_metadata_(nullptr) {
-  SharedCtor();
-  // @@protoc_insertion_point(constructor:cardboard.DeviceParams)
-}
-DeviceParams::DeviceParams(const DeviceParams& from)
-  : ::PROTOBUF_NAMESPACE_ID::MessageLite(),
-      _internal_metadata_(nullptr),
-      _has_bits_(from._has_bits_),
-      left_eye_field_of_view_angles_(from.left_eye_field_of_view_angles_),
-      distortion_coefficients_(from.distortion_coefficients_) {
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
-  vendor_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_vendor()) {
-    vendor_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.vendor_);
-  }
-  model_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  if (from._internal_has_model()) {
-    model_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.model_);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   }
   ::memcpy(&screen_to_lens_distance_, &from.screen_to_lens_distance_,
     static_cast<size_t>(reinterpret_cast<char*>(&primary_button_) -
@@ -290,7 +232,6 @@ DeviceParams::DeviceParams(const DeviceParams& from)
 }
 
 void DeviceParams::SharedCtor() {
-<<<<<<< HEAD
 vendor_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 model_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 ::memset(reinterpret_cast<char*>(this) + static_cast<size_t>(
@@ -298,20 +239,10 @@ model_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlread
     0, static_cast<size_t>(reinterpret_cast<char*>(&vertical_alignment_) -
     reinterpret_cast<char*>(&screen_to_lens_distance_)) + sizeof(vertical_alignment_));
 primary_button_ = 1;
-=======
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&scc_info_DeviceParams_cardboard_5fdevice_2eproto.base);
-  vendor_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  model_.UnsafeSetDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
-  ::memset(&screen_to_lens_distance_, 0, static_cast<size_t>(
-      reinterpret_cast<char*>(&vertical_alignment_) -
-      reinterpret_cast<char*>(&screen_to_lens_distance_)) + sizeof(vertical_alignment_));
-  primary_button_ = 1;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }
 
 DeviceParams::~DeviceParams() {
   // @@protoc_insertion_point(destructor:cardboard.DeviceParams)
-<<<<<<< HEAD
   if (GetArenaForAllocation() != nullptr) return;
   SharedDtor();
   _internal_metadata_.Delete<std::string>();
@@ -319,17 +250,10 @@ DeviceParams::~DeviceParams() {
 
 inline void DeviceParams::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-=======
-  SharedDtor();
-}
-
-void DeviceParams::SharedDtor() {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   vendor_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
   model_.DestroyNoArena(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited());
 }
 
-<<<<<<< HEAD
 void DeviceParams::ArenaDtor(void* object) {
   DeviceParams* _this = reinterpret_cast< DeviceParams* >(object);
   (void)_this;
@@ -339,16 +263,6 @@ void DeviceParams::RegisterArenaDtor(::PROTOBUF_NAMESPACE_ID::Arena*) {
 void DeviceParams::SetCachedSize(int size) const {
   _cached_size_.Set(size);
 }
-=======
-void DeviceParams::SetCachedSize(int size) const {
-  _cached_size_.Set(size);
-}
-const DeviceParams& DeviceParams::default_instance() {
-  ::PROTOBUF_NAMESPACE_ID::internal::InitSCC(&::scc_info_DeviceParams_cardboard_5fdevice_2eproto.base);
-  return *internal_default_instance();
-}
-
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
 void DeviceParams::Clear() {
 // @@protoc_insertion_point(message_clear_start:cardboard.DeviceParams)
@@ -361,17 +275,10 @@ void DeviceParams::Clear() {
   cached_has_bits = _has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-<<<<<<< HEAD
       vendor_.ClearNonDefaultToEmpty();
     }
     if (cached_has_bits & 0x00000002u) {
       model_.ClearNonDefaultToEmpty();
-=======
-      vendor_.ClearNonDefaultToEmptyNoArena();
-    }
-    if (cached_has_bits & 0x00000002u) {
-      model_.ClearNonDefaultToEmptyNoArena();
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     }
   }
   if (cached_has_bits & 0x0000007cu) {
@@ -381,11 +288,7 @@ void DeviceParams::Clear() {
     primary_button_ = 1;
   }
   _has_bits_.Clear();
-<<<<<<< HEAD
   _internal_metadata_.Clear<std::string>();
-=======
-  _internal_metadata_.Clear();
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }
 
 const char* DeviceParams::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) {
@@ -394,40 +297,24 @@ const char* DeviceParams::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
   while (!ctx->Done(&ptr)) {
     ::PROTOBUF_NAMESPACE_ID::uint32 tag;
     ptr = ::PROTOBUF_NAMESPACE_ID::internal::ReadTag(ptr, &tag);
-<<<<<<< HEAD
-=======
-    CHK_(ptr);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     switch (tag >> 3) {
       // optional string vendor = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 10)) {
-<<<<<<< HEAD
           auto str = _internal_mutable_vendor();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
-=======
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(_internal_mutable_vendor(), ptr, ctx);
-          CHK_(ptr);
-        } else goto handle_unusual;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
         continue;
       // optional string model = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 18)) {
-<<<<<<< HEAD
           auto str = _internal_mutable_model();
           ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(str, ptr, ctx);
           CHK_(ptr);
         } else
           goto handle_unusual;
-=======
-          ptr = ::PROTOBUF_NAMESPACE_ID::internal::InlineGreedyStringParser(_internal_mutable_model(), ptr, ctx);
-          CHK_(ptr);
-        } else goto handle_unusual;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
         continue;
       // optional float screen_to_lens_distance = 3;
       case 3:
@@ -435,12 +322,8 @@ const char* DeviceParams::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
           _Internal::set_has_screen_to_lens_distance(&has_bits);
           screen_to_lens_distance_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
-<<<<<<< HEAD
         } else
           goto handle_unusual;
-=======
-        } else goto handle_unusual;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
         continue;
       // optional float inter_lens_distance = 4;
       case 4:
@@ -448,12 +331,8 @@ const char* DeviceParams::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
           _Internal::set_has_inter_lens_distance(&has_bits);
           inter_lens_distance_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
-<<<<<<< HEAD
         } else
           goto handle_unusual;
-=======
-        } else goto handle_unusual;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
         continue;
       // repeated float left_eye_field_of_view_angles = 5 [packed = true];
       case 5:
@@ -463,12 +342,8 @@ const char* DeviceParams::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
         } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 45) {
           _internal_add_left_eye_field_of_view_angles(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
           ptr += sizeof(float);
-<<<<<<< HEAD
         } else
           goto handle_unusual;
-=======
-        } else goto handle_unusual;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
         continue;
       // optional float tray_to_lens_distance = 6;
       case 6:
@@ -476,12 +351,8 @@ const char* DeviceParams::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
           _Internal::set_has_tray_to_lens_distance(&has_bits);
           tray_to_lens_distance_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
-<<<<<<< HEAD
         } else
           goto handle_unusual;
-=======
-        } else goto handle_unusual;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
         continue;
       // repeated float distortion_coefficients = 7 [packed = true];
       case 7:
@@ -491,49 +362,32 @@ const char* DeviceParams::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
         } else if (static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 61) {
           _internal_add_distortion_coefficients(::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr));
           ptr += sizeof(float);
-<<<<<<< HEAD
         } else
           goto handle_unusual;
-=======
-        } else goto handle_unusual;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
         continue;
       // optional .cardboard.DeviceParams.VerticalAlignmentType vertical_alignment = 11 [default = BOTTOM];
       case 11:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 88)) {
-<<<<<<< HEAD
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-=======
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
           CHK_(ptr);
           if (PROTOBUF_PREDICT_TRUE(::cardboard::DeviceParams_VerticalAlignmentType_IsValid(val))) {
             _internal_set_vertical_alignment(static_cast<::cardboard::DeviceParams_VerticalAlignmentType>(val));
           } else {
             ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(11, val, mutable_unknown_fields());
           }
-<<<<<<< HEAD
         } else
           goto handle_unusual;
-=======
-        } else goto handle_unusual;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
         continue;
       // optional .cardboard.DeviceParams.ButtonType primary_button = 12 [default = MAGNET];
       case 12:
         if (PROTOBUF_PREDICT_TRUE(static_cast<::PROTOBUF_NAMESPACE_ID::uint8>(tag) == 96)) {
-<<<<<<< HEAD
           ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-=======
-          ::PROTOBUF_NAMESPACE_ID::uint64 val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint(&ptr);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
           CHK_(ptr);
           if (PROTOBUF_PREDICT_TRUE(::cardboard::DeviceParams_ButtonType_IsValid(val))) {
             _internal_set_primary_button(static_cast<::cardboard::DeviceParams_ButtonType>(val));
           } else {
             ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(12, val, mutable_unknown_fields());
           }
-<<<<<<< HEAD
         } else
           goto handle_unusual;
         continue;
@@ -553,40 +407,15 @@ const char* DeviceParams::_InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_I
     CHK_(ptr != nullptr);
   }  // while
 message_done:
-=======
-        } else goto handle_unusual;
-        continue;
-      default: {
-      handle_unusual:
-        if ((tag & 7) == 4 || tag == 0) {
-          ctx->SetLastTag(tag);
-          goto success;
-        }
-        ptr = UnknownFieldParse(tag, &_internal_metadata_, ptr, ctx);
-        CHK_(ptr != nullptr);
-        continue;
-      }
-    }  // switch
-  }  // while
-success:
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   _has_bits_.Or(has_bits);
   return ptr;
 failure:
   ptr = nullptr;
-<<<<<<< HEAD
   goto message_done;
 #undef CHK_
 }
 
 ::PROTOBUF_NAMESPACE_ID::uint8* DeviceParams::_InternalSerialize(
-=======
-  goto success;
-#undef CHK_
-}
-
-::PROTOBUF_NAMESPACE_ID::uint8* DeviceParams::InternalSerializeWithCachedSizesToArray(
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     ::PROTOBUF_NAMESPACE_ID::uint8* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
   // @@protoc_insertion_point(serialize_to_array_start:cardboard.DeviceParams)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
@@ -607,21 +436,13 @@ failure:
 
   // optional float screen_to_lens_distance = 3;
   if (cached_has_bits & 0x00000004u) {
-<<<<<<< HEAD
     target = stream->EnsureSpace(target);
-=======
-    stream->EnsureSpace(&target);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(3, this->_internal_screen_to_lens_distance(), target);
   }
 
   // optional float inter_lens_distance = 4;
   if (cached_has_bits & 0x00000008u) {
-<<<<<<< HEAD
     target = stream->EnsureSpace(target);
-=======
-    stream->EnsureSpace(&target);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(4, this->_internal_inter_lens_distance(), target);
   }
 
@@ -632,11 +453,7 @@ failure:
 
   // optional float tray_to_lens_distance = 6;
   if (cached_has_bits & 0x00000010u) {
-<<<<<<< HEAD
     target = stream->EnsureSpace(target);
-=======
-    stream->EnsureSpace(&target);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteFloatToArray(6, this->_internal_tray_to_lens_distance(), target);
   }
 
@@ -647,34 +464,21 @@ failure:
 
   // optional .cardboard.DeviceParams.VerticalAlignmentType vertical_alignment = 11 [default = BOTTOM];
   if (cached_has_bits & 0x00000020u) {
-<<<<<<< HEAD
     target = stream->EnsureSpace(target);
-=======
-    stream->EnsureSpace(&target);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       11, this->_internal_vertical_alignment(), target);
   }
 
   // optional .cardboard.DeviceParams.ButtonType primary_button = 12 [default = MAGNET];
   if (cached_has_bits & 0x00000040u) {
-<<<<<<< HEAD
     target = stream->EnsureSpace(target);
-=======
-    stream->EnsureSpace(&target);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::WriteEnumToArray(
       12, this->_internal_primary_button(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-<<<<<<< HEAD
     target = stream->WriteRaw(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).data(),
         static_cast<int>(_internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size()), target);
-=======
-    target = stream->WriteRaw(_internal_metadata_.unknown_fields().data(),
-        static_cast<int>(_internal_metadata_.unknown_fields().size()), target);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   }
   // @@protoc_insertion_point(serialize_to_array_end:cardboard.DeviceParams)
   return target;
@@ -697,12 +501,6 @@ size_t DeviceParams::ByteSizeLong() const {
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
             static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
     }
-<<<<<<< HEAD
-=======
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
-    _left_eye_field_of_view_angles_cached_byte_size_.store(cached_size,
-                                    std::memory_order_relaxed);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     total_size += data_size;
   }
 
@@ -715,12 +513,6 @@ size_t DeviceParams::ByteSizeLong() const {
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::Int32Size(
             static_cast<::PROTOBUF_NAMESPACE_ID::int32>(data_size));
     }
-<<<<<<< HEAD
-=======
-    int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(data_size);
-    _distortion_coefficients_cached_byte_size_.store(cached_size,
-                                    std::memory_order_relaxed);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     total_size += data_size;
   }
 
@@ -769,11 +561,7 @@ size_t DeviceParams::ByteSizeLong() const {
 
   }
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-<<<<<<< HEAD
     total_size += _internal_metadata_.unknown_fields<std::string>(::PROTOBUF_NAMESPACE_ID::internal::GetEmptyString).size();
-=======
-    total_size += _internal_metadata_.unknown_fields().size();
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   }
   int cached_size = ::PROTOBUF_NAMESPACE_ID::internal::ToCachedSize(total_size);
   SetCachedSize(cached_size);
@@ -789,10 +577,6 @@ void DeviceParams::CheckTypeAndMergeFrom(
 void DeviceParams::MergeFrom(const DeviceParams& from) {
 // @@protoc_insertion_point(class_specific_merge_from_start:cardboard.DeviceParams)
   GOOGLE_DCHECK_NE(&from, this);
-<<<<<<< HEAD
-=======
-  _internal_metadata_.MergeFrom(from._internal_metadata_);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   ::PROTOBUF_NAMESPACE_ID::uint32 cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -801,19 +585,10 @@ void DeviceParams::MergeFrom(const DeviceParams& from) {
   cached_has_bits = from._has_bits_[0];
   if (cached_has_bits & 0x0000007fu) {
     if (cached_has_bits & 0x00000001u) {
-<<<<<<< HEAD
       _internal_set_vendor(from._internal_vendor());
     }
     if (cached_has_bits & 0x00000002u) {
       _internal_set_model(from._internal_model());
-=======
-      _has_bits_[0] |= 0x00000001u;
-      vendor_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.vendor_);
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _has_bits_[0] |= 0x00000002u;
-      model_.AssignWithDefault(&::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(), from.model_);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     }
     if (cached_has_bits & 0x00000004u) {
       screen_to_lens_distance_ = from.screen_to_lens_distance_;
@@ -832,10 +607,7 @@ void DeviceParams::MergeFrom(const DeviceParams& from) {
     }
     _has_bits_[0] |= cached_has_bits;
   }
-<<<<<<< HEAD
   _internal_metadata_.MergeFrom<std::string>(from._internal_metadata_);
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }
 
 void DeviceParams::CopyFrom(const DeviceParams& from) {
@@ -851,7 +623,6 @@ bool DeviceParams::IsInitialized() const {
 
 void DeviceParams::InternalSwap(DeviceParams* other) {
   using std::swap;
-<<<<<<< HEAD
   auto* lhs_arena = GetArenaForAllocation();
   auto* rhs_arena = other->GetArenaForAllocation();
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
@@ -874,20 +645,6 @@ void DeviceParams::InternalSwap(DeviceParams* other) {
       - PROTOBUF_FIELD_OFFSET(DeviceParams, screen_to_lens_distance_)>(
           reinterpret_cast<char*>(&screen_to_lens_distance_),
           reinterpret_cast<char*>(&other->screen_to_lens_distance_));
-=======
-  _internal_metadata_.Swap(&other->_internal_metadata_);
-  swap(_has_bits_[0], other->_has_bits_[0]);
-  left_eye_field_of_view_angles_.InternalSwap(&other->left_eye_field_of_view_angles_);
-  distortion_coefficients_.InternalSwap(&other->distortion_coefficients_);
-  vendor_.Swap(&other->vendor_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  model_.Swap(&other->model_, &::PROTOBUF_NAMESPACE_ID::internal::GetEmptyStringAlreadyInited(),
-    GetArenaNoVirtual());
-  swap(screen_to_lens_distance_, other->screen_to_lens_distance_);
-  swap(inter_lens_distance_, other->inter_lens_distance_);
-  swap(tray_to_lens_distance_, other->tray_to_lens_distance_);
-  swap(vertical_alignment_, other->vertical_alignment_);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   swap(primary_button_, other->primary_button_);
 }
 
@@ -900,11 +657,7 @@ std::string DeviceParams::GetTypeName() const {
 }  // namespace cardboard
 PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::cardboard::DeviceParams* Arena::CreateMaybeMessage< ::cardboard::DeviceParams >(Arena* arena) {
-<<<<<<< HEAD
   return Arena::CreateMessageInternal< ::cardboard::DeviceParams >(arena);
-=======
-  return Arena::CreateInternal< ::cardboard::DeviceParams >(arena);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }
 PROTOBUF_NAMESPACE_CLOSE
 

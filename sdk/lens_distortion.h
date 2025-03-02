@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,16 +19,12 @@
 #include <array>
 #include <memory>
 
-<<<<<<< HEAD
 #ifdef __ANDROID__
 #include "device_params/android/device_params.h"
 #else
 #include "cardboard_device.pb.h"
 #endif
 
-=======
-#include "cardboard_device.pb.h"
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 #include "distortion_mesh.h"
 #include "include/cardboard.h"
 #include "polynomial_radial_distortion.h"
@@ -52,19 +44,12 @@ class LensDistortion {
       const std::array<float, 2>& in, CardboardEye eye) const;
   std::array<float, 2> UndistortedUvForDistortedUv(
       const std::array<float, 2>& in, CardboardEye eye) const;
-<<<<<<< HEAD
   void GetEyeFromHeadMatrix(CardboardEye eye,
                             float* eye_from_head_matrix) const;
   void GetEyeProjectionMatrix(CardboardEye eye, float z_near, float z_far,
                               float* projection_matrix) const;
   void GetEyeFieldOfView(CardboardEye eye, float* field_of_view) const;
   CardboardMesh GetDistortionMesh(CardboardEye eye) const;
-=======
-  void GetEyeMatrices(float* projection_matrix, float* eye_from_head_matrix,
-                      CardboardEye eye) const;
-  CardboardMesh GetDistortionMesh(CardboardEye eye) const;
-
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  private:
   struct ViewportParams;
 
@@ -87,11 +72,7 @@ class LensDistortion {
                                           float screen_height_meters,
                                           ViewportParams* screen_params,
                                           ViewportParams* texture_params);
-<<<<<<< HEAD
   static constexpr float DegreesToRadians(float angle);
-=======
-  static constexpr float kMetersPerInch = 0.0254f;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
   DeviceParams device_params_;
 
@@ -99,10 +80,6 @@ class LensDistortion {
   float screen_height_meters_;
   std::array<std::array<float, 4>, 2> fov_;  // L, R, B, T
   std::array<Matrix4x4, 2> eye_from_head_matrix_;
-<<<<<<< HEAD
-=======
-  std::array<Matrix4x4, 2> projection_matrix_;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   std::unique_ptr<DistortionMesh> left_mesh_;
   std::unique_ptr<DistortionMesh> right_mesh_;
   std::unique_ptr<PolynomialRadialDistortion> distortion_;

@@ -3,20 +3,11 @@
 buildscript {
     repositories {
         google()
-<<<<<<< HEAD
         mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.8.1'
         classpath 'com.google.protobuf:protobuf-gradle-plugin:0.9.4'
-=======
-        jcenter()
-        
-    }
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.4.1'
-        
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }
@@ -25,7 +16,6 @@ buildscript {
 allprojects {
     repositories {
         google()
-<<<<<<< HEAD
         mavenCentral()
     }
 }
@@ -33,14 +23,3 @@ allprojects {
  tasks.register('clean', Delete) {
      delete rootProject
  }
-
-=======
-        jcenter()
-        
-    }
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
-}
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)

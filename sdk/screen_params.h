@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,23 +20,13 @@
 #include <jni.h>
 #endif
 
-<<<<<<< HEAD
 namespace cardboard::screen_params {
-=======
-namespace cardboard {
-namespace screen_params {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 static constexpr float kMetersPerInch = 0.0254f;
 #ifdef __ANDROID__
 void initializeAndroid(JavaVM* vm, jobject context);
 #endif
 void getScreenSizeInMeters(int width_pixels, int height_pixels,
                            float* out_width_meters, float* out_height_meters);
-<<<<<<< HEAD
 }  // namespace cardboard::screen_params
-=======
-}  // namespace screen_params
-}  // namespace cardboard
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
 #endif  // CARDBOARD_SDK_SCREEN_PARAMS_H_

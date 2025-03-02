@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,7 +22,6 @@
 
 #include <stdint.h>
 
-<<<<<<< HEAD
 /// @defgroup types Cardboard SDK types
 /// @brief Various types used in the Cardboard SDK.
 /// @{
@@ -37,23 +32,10 @@ typedef struct CardboardUv {
   float u;
   /// v coordinate.
   float v;
-=======
-#ifdef __ANDROID__
-#include <GLES2/gl2.h>
-#endif
-#ifdef __APPLE__
-#include <OpenGLES/ES2/gl.h>
-#endif
-
-/// UV coordinates helper struct.
-typedef struct CardboardUv {
-  float u, v;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 } CardboardUv;
 
 /// Enum to distinguish left and right eyes.
 typedef enum CardboardEye {
-<<<<<<< HEAD
   /// Left eye.
   kLeft = 0,
   /// Right eye.
@@ -105,25 +87,11 @@ typedef struct CardboardMesh {
   /// UV coordinates buffer. 2 floats per uv: u, v.
   float* uvs;
   /// Number of vertices.
-=======
-  kLeft = 0,
-  kRight = 1,
-} CardboardEye;
-
-/// Struct representing a 3D mesh with 3D vertices and corresponding UV
-/// coordinates.
-typedef struct CardboardMesh {
-  int* indices;
-  int n_indices;
-  float* vertices;  // 2 floats per vertex: x, y.
-  float* uvs;       // 2 floats per uv: u, v.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   int n_vertices;
 } CardboardMesh;
 
 /// Struct to hold information about an eye texture.
 typedef struct CardboardEyeTextureDescription {
-<<<<<<< HEAD
   /// The texture with eye pixels.
   ///
   /// When using OpenGL ES 2.x and OpenGL ES 3.x, this field corresponds to a
@@ -268,18 +236,6 @@ typedef struct CardboardVulkanDistortionRendererTarget {
   uint32_t swapchain_image_index;
 } CardboardVulkanDistortionRendererTarget;
 
-=======
-  GLuint texture;           // The texture with eye pixels.
-  int layer;                // The layer index inside the texture.
-  float left_u;             // u coordinate of the left side of the eye.
-  float right_u;            // u coordinate of the right side of the eye.
-  float top_v;              // v coordinate of the top side of the eye.
-  float bottom_v;           // v coordinate of the bottom side.
-  float eye_from_head[16];  // The translation from head coordinate frame  to
-                            // the eye frame.
-} CardboardEyeTextureDescription;
-
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 /// An opaque Lens Distortion object.
 typedef struct CardboardLensDistortion CardboardLensDistortion;
 
@@ -289,16 +245,12 @@ typedef struct CardboardDistortionRenderer CardboardDistortionRenderer;
 /// An opaque Head Tracker object.
 typedef struct CardboardHeadTracker CardboardHeadTracker;
 
-<<<<<<< HEAD
 /// @}
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 #ifdef __cplusplus
 extern "C" {
 #endif
 
-<<<<<<< HEAD
 /////////////////////////////////////////////////////////////////////////////
 // Initialization (Android only)
 /////////////////////////////////////////////////////////////////////////////
@@ -352,22 +304,10 @@ void Cardboard_initializeAndroid(JavaVM* vm, jobject context);
 ///     based on the device (Cardboard viewer) and screen parameters. It also
 ///     includes functions to calculate the distortion for a single point.
 /// @{
-=======
-#ifdef __ANDROID__
-/// Initializes JavaVM and Android activity context.
-///
-/// @param[in]      vm                      JavaVM pointer
-/// @param[in]      context                 Android activity context
-void Cardboard_initializeAndroid(JavaVM* vm, jobject context);
-#endif
-
-/// Lens Distortion functions.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
 /// Creates a new lens distortion object and initializes it with the values from
 /// @c encoded_device_params.
 ///
-<<<<<<< HEAD
 /// @pre @p encoded_device_params Must not be null.
 /// When it is unmet, a call to this function results in a no-op and returns a
 /// @c nullptr.
@@ -376,12 +316,6 @@ void Cardboard_initializeAndroid(JavaVM* vm, jobject context);
 ///     using cardboard_device.proto.
 /// @param[in]      size                    Size in bytes of
 ///     @c encoded_device_params.
-=======
-/// @param[in]      encoded_device_params   The device parameters serialized
-///     using cardboard_device.proto.
-/// @param[in]      size                    Size in bytes of
-///     encoded_device_params.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 /// @param[in]      display_width           Size in pixels of display width.
 /// @param[in]      display_height          Size in pixels of display height.
 /// @return         Lens distortion object pointer.
@@ -391,7 +325,6 @@ CardboardLensDistortion* CardboardLensDistortion_create(
 
 /// Destroys and releases memory used by the provided lens distortion object.
 ///
-<<<<<<< HEAD
 /// @pre @p lens_distortion Must not be null.
 /// When it is unmet, a call to this function results in a no-op.
 ///
@@ -454,23 +387,6 @@ void CardboardLensDistortion_getFieldOfView(
 /// Important: The distorsion mesh that is returned by this function becomes
 /// invalid if CardboardLensDistortion is destroyed.
 ///
-=======
-/// @param[in]      lens_distortion         Lens distortion object pointer.
-void CardboardLensDistortion_destroy(CardboardLensDistortion* lens_distortion);
-
-/// Gets the ideal projection and eye_from_head matrices for a particular eye.
-///
-/// @param[in]      lens_distortion         Lens distortion object pointer.
-/// @param[out]     projection_matrix       4x4 float ideal projection matrix.
-/// @param[out]     eye_from_head_matrix    4x4 float eye from head matrix.
-/// @param[in]      eye                     Desired eye.
-void CardboardLensDistortion_getEyeMatrices(
-    CardboardLensDistortion* lens_distortion, float* projection_matrix,
-    float* eye_from_head_matrix, CardboardEye eye);
-
-/// Gets the distortion mesh for a particular eye.
-///
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 /// @param[in]      lens_distortion         Lens distortion object pointer.
 /// @param[in]      eye                     Desired eye.
 /// @param[out]     mesh                    Distortion mesh.
@@ -478,7 +394,6 @@ void CardboardLensDistortion_getDistortionMesh(
     CardboardLensDistortion* lens_distortion, CardboardEye eye,
     CardboardMesh* mesh);
 
-<<<<<<< HEAD
 /// Applies lens inverse distortion function to a point normalized [0,1] in
 /// pre-distortion (eye texture) space.
 ///
@@ -486,10 +401,6 @@ void CardboardLensDistortion_getDistortionMesh(
 /// @pre @p distorted_uv Must not be null.
 /// When it is unmet, a call to this function results in a no-op and returns an
 /// invalid struct (in other words, both UV coordinates are equal to -1).
-=======
-/// Applies lens inverse distortion function to a point normalized [0,1] in pre
-/// distort space (eye texture space).
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 ///
 /// @param[in]      lens_distortion         Lens distortion object pointer.
 /// @param[in]      distorted_uv            Distorted UV point.
@@ -500,16 +411,12 @@ CardboardUv CardboardLensDistortion_undistortedUvForDistortedUv(
     CardboardEye eye);
 
 /// Applies lens distortion function to a point normalized [0,1] in the screen
-<<<<<<< HEAD
 /// post-distortion space.
 ///
 /// @pre @p lens_distortion Must not be null.
 /// @pre @p undistorted_uv Must not be null.
 /// When it is unmet, a call to this function results in a no-op and returns an
 /// invalid struct (in other words, both UV coordinates are equal to -1).
-=======
-/// post distort space.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 ///
 /// @param[in]      lens_distortion         Lens distortion object pointer.
 /// @param[in]      undistorted_uv          Undistorted UV point.
@@ -519,7 +426,6 @@ CardboardUv CardboardLensDistortion_undistortedUvForDistortedUv(
 CardboardUv CardboardLensDistortion_distortedUvForUndistortedUv(
     CardboardLensDistortion* lens_distortion, const CardboardUv* undistorted_uv,
     CardboardEye eye);
-<<<<<<< HEAD
 /// @}
 
 /////////////////////////////////////////////////////////////////////////////
@@ -568,24 +474,10 @@ CardboardDistortionRenderer* CardboardVulkanDistortionRenderer_create(
 ///
 /// @pre @p renderer Must not be null.
 /// When it is unmet, a call to this function results in a no-op.
-=======
-
-/// Distortion Renderer functions.
-
-/// Creates a new distortion renderer object. Must be called from rendering
-/// thread.
-///
-/// @return         Distortion renderer object pointer
-CardboardDistortionRenderer* CardboardDistortionRenderer_create();
-
-/// Destroys and releases memory used by the provided distortion renderer
-/// object. Must be called from rendering thread.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 ///
 /// @param[in]      renderer                Distortion renderer object pointer.
 void CardboardDistortionRenderer_destroy(CardboardDistortionRenderer* renderer);
 
-<<<<<<< HEAD
 /// Sets the distortion Mesh for a particular eye. Must be called from render
 /// thread.
 ///
@@ -593,11 +485,6 @@ void CardboardDistortionRenderer_destroy(CardboardDistortionRenderer* renderer);
 /// @pre @p mesh Must not be null.
 /// When it is unmet, a call to this function results in a no-op.
 ///
-=======
-/// Sets Distortion Mesh for a particular eye. Must be called from rendering
-/// thread.
-///
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 /// @param[in]      renderer                Distortion renderer object pointer.
 /// @param[in]      mesh                    Distortion mesh.
 /// @param[in]      eye                     Desired eye.
@@ -605,7 +492,6 @@ void CardboardDistortionRenderer_setMesh(CardboardDistortionRenderer* renderer,
                                          const CardboardMesh* mesh,
                                          CardboardEye eye);
 
-<<<<<<< HEAD
 /// Renders eye textures to a rectangle in the display. Must be called from
 /// render thread.
 ///
@@ -674,23 +560,6 @@ void CardboardDistortionRenderer_renderEyeToDisplay(
 ///            be further adjusted via a scene graph. This is the only pose
 ///            exposed through the API.
 /// @{
-=======
-/// Renders eye textures to display. Must be called from rendering thread.
-///
-/// @param[in]      renderer                Distortion renderer object pointer.
-/// @param[in]      target_display          Target display.
-/// @param[in]      display_width           Size in pixels of display width.
-/// @param[in]      display_height          Size in pixels of display height.
-/// @param[in]      left_eye                Left eye texture description.
-/// @param[in]      right_eye               Right eye texture description.
-void CardboardDestortionRenderer_renderEyeToDisplay(
-    CardboardDistortionRenderer* renderer, int target_display,
-    int display_width, int display_height,
-    const CardboardEyeTextureDescription* left_eye,
-    const CardboardEyeTextureDescription* right_eye);
-
-/// Head Tracker functions.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
 /// Creates a new head tracker object.
 ///
@@ -699,40 +568,30 @@ CardboardHeadTracker* CardboardHeadTracker_create();
 
 /// Destroys and releases memory used by the provided head tracker object.
 ///
-<<<<<<< HEAD
 /// @pre @p head_tracker Must not be null.
 /// When it is unmet, a call to this function results in a no-op.
 ///
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 /// @param[in]      head_tracker            Head tracker object pointer.
 void CardboardHeadTracker_destroy(CardboardHeadTracker* head_tracker);
 
 /// Pauses head tracker and underlying device sensors.
 ///
-<<<<<<< HEAD
 /// @pre @p head_tracker Must not be null.
 /// When it is unmet, a call to this function results in a no-op.
 ///
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 /// @param[in]      head_tracker            Head tracker object pointer.
 void CardboardHeadTracker_pause(CardboardHeadTracker* head_tracker);
 
 /// Resumes head tracker and underlying device sensors.
 ///
-<<<<<<< HEAD
 /// @pre @p head_tracker Must not be null.
 /// When it is unmet, a call to this function results in a no-op.
 ///
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 /// @param[in]      head_tracker            Head tracker object pointer.
 void CardboardHeadTracker_resume(CardboardHeadTracker* head_tracker);
 
 /// Gets the predicted head pose for a given timestamp.
 ///
-<<<<<<< HEAD
 /// @details On Android devices, @p timestamp_ns must be in system boot time
 ///          (see [CLOCK_BOOTTIME](https://linux.die.net/man/2/clock_gettime))
 ///          clock (see [Android
@@ -800,21 +659,6 @@ void CardboardHeadTracker_setLowPassFilter(CardboardHeadTracker* head_tracker,
 /// @pre @p size Must not be null.
 /// When it is unmet, a call to this function results in a no-op and default
 /// values are returned (empty values).
-=======
-/// @param[in]      head_tracker            Head tracker object pointer.
-/// @param[in]      timestamp_ns            The timestamp for the pose in
-///     nanoseconds in system monotonic clock.
-/// @param[out]     position                3 floats for (x, y, z).
-/// @param[out]     orientation             4 floats for quaternion
-void CardboardHeadTracker_getPose(CardboardHeadTracker* head_tracker,
-                                  int64_t timestamp_ns, float* position,
-                                  float* orientation);
-
-/// QR Code scan functions.
-
-/// Gets currently saved devices parameters. This function allocates memory for
-/// the parameters, so it must be released using CardboardQrCode_destroy.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 ///
 /// @param[out]     encoded_device_params   Reference to the device parameters
 ///     serialized using cardboard_device.proto.
@@ -825,17 +669,13 @@ void CardboardQrCode_getSavedDeviceParams(uint8_t** encoded_device_params,
 
 /// Releases memory used by the provided encoded_device_params array.
 ///
-<<<<<<< HEAD
 /// @pre @p encoded_device_params Must not be null.
 /// When it is unmet, a call to this function results in a no-op.
 ///
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 /// @param[in]      encoded_device_params   The device parameters serialized
 ///     using cardboard_device.proto.
 void CardboardQrCode_destroy(const uint8_t* encoded_device_params);
 
-<<<<<<< HEAD
 /// Saves the encoded device parameters provided by an URI.
 ///
 /// @details This function obtains the encoded device parameters by parsing a
@@ -896,11 +736,6 @@ void CardboardQrCode_getCardboardV1DeviceParams(uint8_t** encoded_device_params,
 
 /// @}
 
-=======
-/// Scans a QR code and saves the encoded device parameters.
-void CardboardQrCode_scanQrCodeAndSaveDeviceParams();
-
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 #ifdef __cplusplus
 }
 #endif

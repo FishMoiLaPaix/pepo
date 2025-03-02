@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -25,14 +24,6 @@ add_compile_options(-Wall -Wextra)
 find_library(android-lib android)
 find_library(GLESv2-lib GLESv2)
 find_library(GLESv3-lib GLESv3)
-=======
-cmake_minimum_required(VERSION 3.4.1)
-
-# Standard Android dependencies
-find_library(android-lib android)
-find_library(EGL-lib EGL)
-find_library(GLESv2-lib GLESv2)
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 find_library(log-lib log)
 
 set(libs_dir ${CMAKE_CURRENT_SOURCE_DIR}/libraries)
@@ -47,14 +38,7 @@ target_include_directories(cardboard_jni PRIVATE ${libs_dir})
 # Build
 target_link_libraries(cardboard_jni
     ${android-lib}
-<<<<<<< HEAD
     ${GLESv2-lib}
     ${GLESv3-lib}
     ${log-lib}
     ${libs_dir}/jni/${ANDROID_ABI}/libGfxPluginCardboard.so)
-=======
-    ${EGL-lib}
-    ${GLESv2-lib}
-    ${log-lib}
-    ${libs_dir}/jni/${ANDROID_ABI}/libcardboard_api.so)
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)

@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -41,11 +37,7 @@ DeviceAccelerometerSensor::DeviceAccelerometerSensor() : sensor_info_(new Sensor
 
 DeviceAccelerometerSensor::~DeviceAccelerometerSensor() {}
 
-<<<<<<< HEAD
 void DeviceAccelerometerSensor::PollForSensorData(int /*timeout_ms*/,
-=======
-void DeviceAccelerometerSensor::PollForSensorData(int timeout_ms,
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
                                                   std::vector<AccelerometerData>* results) const {
   results->clear();
   @autoreleasepool {

@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,16 +15,12 @@
  */
 #include "include/cardboard.h"
 
-<<<<<<< HEAD
 #include <cmath>
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 #include "distortion_renderer.h"
 #include "head_tracker.h"
 #include "lens_distortion.h"
 #include "qr_code.h"
-<<<<<<< HEAD
 #include "qrcode/cardboard_v1/cardboard_v1.h"
 #include "screen_params.h"
 #include "util/is_arg_null.h"
@@ -38,16 +30,12 @@
 #include "device_params/android/device_params.h"
 #include "jni_utils/android/jni_utils.h"
 #endif
-=======
-#include "screen_params.h"
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
 // TODO(b/134142617): Revisit struct/class hierarchy.
 struct CardboardLensDistortion : cardboard::LensDistortion {};
 struct CardboardDistortionRenderer : cardboard::DistortionRenderer {};
 struct CardboardHeadTracker : cardboard::HeadTracker {};
 
-<<<<<<< HEAD
 namespace {
 
 // Return default (identity) matrix.
@@ -113,53 +101,39 @@ void GetDefaultOrientation(float* orientation) {
 
 }  // anonymous namespace
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 extern "C" {
 
 #ifdef __ANDROID__
 void Cardboard_initializeAndroid(JavaVM* vm, jobject context) {
-<<<<<<< HEAD
   if (CARDBOARD_IS_ARG_NULL(vm) || CARDBOARD_IS_ARG_NULL(context)) {
     return;
   }
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   JNIEnv* env;
   vm->GetEnv((void**)&env, JNI_VERSION_1_6);
   jobject global_context = env->NewGlobalRef(context);
 
-<<<<<<< HEAD
   cardboard::jni::initializeAndroid(vm, global_context);
   cardboard::qrcode::initializeAndroid(vm, global_context);
   cardboard::screen_params::initializeAndroid(vm, global_context);
   cardboard::DeviceParams::initializeAndroid(vm, global_context);
 
   cardboard::util::SetIsInitialized();
-=======
-  cardboard::qrcode::initializeAndroid(vm, global_context);
-  cardboard::screen_params::initializeAndroid(vm, global_context);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }
 #endif
 
 CardboardLensDistortion* CardboardLensDistortion_create(
     const uint8_t* encoded_device_params, int size, int display_width,
     int display_height) {
-<<<<<<< HEAD
   if (CARDBOARD_IS_NOT_INITIALIZED() ||
       CARDBOARD_IS_ARG_NULL(encoded_device_params)) {
     return nullptr;
   }
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   return reinterpret_cast<CardboardLensDistortion*>(
       new cardboard::LensDistortion(encoded_device_params, size, display_width,
                                     display_height));
 }
 
 void CardboardLensDistortion_destroy(CardboardLensDistortion* lens_distortion) {
-<<<<<<< HEAD
   if (CARDBOARD_IS_NOT_INITIALIZED() ||
       CARDBOARD_IS_ARG_NULL(lens_distortion)) {
     return;
@@ -204,29 +178,16 @@ void CardboardLensDistortion_getFieldOfView(
   }
   static_cast<cardboard::LensDistortion*>(lens_distortion)
       ->GetEyeFieldOfView(eye, field_of_view);
-=======
-  delete lens_distortion;
-}
-
-void CardboardLensDistortion_getEyeMatrices(
-    CardboardLensDistortion* lens_distortion, float* projection_matrix,
-    float* eye_from_head_matrix, CardboardEye eye) {
-  static_cast<cardboard::LensDistortion*>(lens_distortion)
-      ->GetEyeMatrices(projection_matrix, eye_from_head_matrix, eye);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }
 
 void CardboardLensDistortion_getDistortionMesh(
     CardboardLensDistortion* lens_distortion, CardboardEye eye,
     CardboardMesh* mesh) {
-<<<<<<< HEAD
   if (CARDBOARD_IS_NOT_INITIALIZED() ||
       CARDBOARD_IS_ARG_NULL(lens_distortion) || CARDBOARD_IS_ARG_NULL(mesh)) {
     GetDefaultDistortionMesh(mesh);
     return;
   }
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   *mesh = static_cast<cardboard::LensDistortion*>(lens_distortion)
               ->GetDistortionMesh(eye);
 }
@@ -234,15 +195,12 @@ void CardboardLensDistortion_getDistortionMesh(
 CardboardUv CardboardLensDistortion_undistortedUvForDistortedUv(
     CardboardLensDistortion* lens_distortion, const CardboardUv* distorted_uv,
     CardboardEye eye) {
-<<<<<<< HEAD
   if (CARDBOARD_IS_NOT_INITIALIZED() ||
       CARDBOARD_IS_ARG_NULL(lens_distortion) ||
       CARDBOARD_IS_ARG_NULL(distorted_uv)) {
     return CardboardUv{/*.u=*/-1, /*.v=*/-1};
   }
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   std::array<float, 2> in = {distorted_uv->u, distorted_uv->v};
   std::array<float, 2> out =
       static_cast<cardboard::LensDistortion*>(lens_distortion)
@@ -257,15 +215,12 @@ CardboardUv CardboardLensDistortion_undistortedUvForDistortedUv(
 CardboardUv CardboardLensDistortion_distortedUvForUndistortedUv(
     CardboardLensDistortion* lens_distortion, const CardboardUv* undistorted_uv,
     CardboardEye eye) {
-<<<<<<< HEAD
   if (CARDBOARD_IS_NOT_INITIALIZED() ||
       CARDBOARD_IS_ARG_NULL(lens_distortion) ||
       CARDBOARD_IS_ARG_NULL(undistorted_uv)) {
     return CardboardUv{/*.u=*/-1, /*.v=*/-1};
   }
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   std::array<float, 2> in = {undistorted_uv->u, undistorted_uv->v};
   std::array<float, 2> out =
       static_cast<cardboard::LensDistortion*>(lens_distortion)
@@ -277,28 +232,17 @@ CardboardUv CardboardLensDistortion_distortedUvForUndistortedUv(
   return ret;
 }
 
-<<<<<<< HEAD
 void CardboardDistortionRenderer_destroy(
     CardboardDistortionRenderer* renderer) {
   if (CARDBOARD_IS_NOT_INITIALIZED() || CARDBOARD_IS_ARG_NULL(renderer)) {
     return;
   }
-=======
-CardboardDistortionRenderer* CardboardDistortionRenderer_create() {
-  return reinterpret_cast<CardboardDistortionRenderer*>(
-      new cardboard::DistortionRenderer());
-}
-
-void CardboardDistortionRenderer_destroy(
-    CardboardDistortionRenderer* renderer) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   delete renderer;
 }
 
 void CardboardDistortionRenderer_setMesh(CardboardDistortionRenderer* renderer,
                                          const CardboardMesh* mesh,
                                          CardboardEye eye) {
-<<<<<<< HEAD
   if (CARDBOARD_IS_NOT_INITIALIZED() || CARDBOARD_IS_ARG_NULL(renderer) ||
       CARDBOARD_IS_ARG_NULL(mesh)) {
     return;
@@ -336,40 +280,17 @@ void CardboardHeadTracker_destroy(CardboardHeadTracker* head_tracker) {
   if (CARDBOARD_IS_NOT_INITIALIZED() || CARDBOARD_IS_ARG_NULL(head_tracker)) {
     return;
   }
-=======
-  static_cast<cardboard::DistortionRenderer*>(renderer)->SetMesh(mesh, eye);
-}
-
-void CardboardDestortionRenderer_renderEyeToDisplay(
-    CardboardDistortionRenderer* renderer, int target_display,
-    int display_width, int display_height,
-    const CardboardEyeTextureDescription* left_eye,
-    const CardboardEyeTextureDescription* right_eye) {
-  static_cast<cardboard::DistortionRenderer*>(renderer)->RenderEyeToDisplay(
-      target_display, display_width, display_height, left_eye, right_eye);
-}
-
-CardboardHeadTracker* CardboardHeadTracker_create() {
-  return reinterpret_cast<CardboardHeadTracker*>(new cardboard::HeadTracker());
-}
-
-void CardboardHeadTracker_destroy(CardboardHeadTracker* head_tracker) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   delete head_tracker;
 }
 
 void CardboardHeadTracker_pause(CardboardHeadTracker* head_tracker) {
-<<<<<<< HEAD
   if (CARDBOARD_IS_NOT_INITIALIZED() || CARDBOARD_IS_ARG_NULL(head_tracker)) {
     return;
   }
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   static_cast<cardboard::HeadTracker*>(head_tracker)->Pause();
 }
 
 void CardboardHeadTracker_resume(CardboardHeadTracker* head_tracker) {
-<<<<<<< HEAD
   if (CARDBOARD_IS_NOT_INITIALIZED() || CARDBOARD_IS_ARG_NULL(head_tracker)) {
     return;
   }
@@ -390,23 +311,10 @@ void CardboardHeadTracker_getPose(
   std::array<float, 4> out_orientation;
   static_cast<cardboard::HeadTracker*>(head_tracker)
       ->GetPose(timestamp_ns, viewport_orientation, out_position, out_orientation);
-=======
-  static_cast<cardboard::HeadTracker*>(head_tracker)->Resume();
-}
-
-void CardboardHeadTracker_getPose(CardboardHeadTracker* head_tracker,
-                                  int64_t timestamp_ns, float* position,
-                                  float* orientation) {
-  std::array<float, 3> out_position;
-  std::array<float, 4> out_orientation;
-  static_cast<cardboard::HeadTracker*>(head_tracker)
-      ->GetPose(timestamp_ns, out_position, out_orientation);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   std::memcpy(position, &out_position[0], 3 * sizeof(float));
   std::memcpy(orientation, &out_orientation[0], 4 * sizeof(float));
 }
 
-<<<<<<< HEAD
 void CardboardHeadTracker_recenter(CardboardHeadTracker* head_tracker) {
   if (CARDBOARD_IS_NOT_INITIALIZED() || CARDBOARD_IS_ARG_NULL(head_tracker)) {
     return;
@@ -431,20 +339,11 @@ void CardboardQrCode_getSavedDeviceParams(uint8_t** encoded_device_params,
     return;
   }
   *size = static_cast<int>(device_params.size());
-=======
-
-void CardboardQrCode_getSavedDeviceParams(uint8_t** encoded_device_params,
-                                          int* size) {
-  std::vector<uint8_t> device_params =
-      cardboard::qrcode::getCurrentSavedDeviceParams();
-  *size = device_params.size();
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   *encoded_device_params = new uint8_t[*size];
   memcpy(*encoded_device_params, &device_params[0], *size);
 }
 
 void CardboardQrCode_destroy(const uint8_t* encoded_device_params) {
-<<<<<<< HEAD
   if (CARDBOARD_IS_NOT_INITIALIZED() ||
       CARDBOARD_IS_ARG_NULL(encoded_device_params)) {
     return;
@@ -492,13 +391,4 @@ void CardboardQrCode_getCardboardV1DeviceParams(uint8_t** encoded_device_params,
   *size = static_cast<int>(cardboard_v1_device_param.size());
 }
 
-=======
-  delete[] encoded_device_params;
-}
-
-void CardboardQrCode_scanQrCodeAndSaveDeviceParams() {
-  cardboard::qrcode::scanQrCodeAndSaveDeviceParams();
-}
-
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }  // extern "C"

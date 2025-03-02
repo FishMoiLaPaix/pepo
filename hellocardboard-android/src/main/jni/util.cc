@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -209,11 +205,7 @@ bool LoadObjFile(AAssetManager* mgr, const std::string& file_name,
 
       bool is_normal_available = false;
       bool is_uv_available = false;
-<<<<<<< HEAD
       for (size_t i = 0; i < per_vertex_info_list.size(); ++i) {
-=======
-      for (int i = 0; i < per_vertex_info_list.size(); ++i) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
         char* per_vertex_info;
         int per_vertex_info_count = 0;
 
@@ -436,15 +428,9 @@ float AngleBetweenVectors(const std::array<float, 4>& vec1,
 
 static constexpr uint64_t kNanosInSeconds = 1000000000;
 
-<<<<<<< HEAD
 int64_t GetBootTimeNano() {
   struct timespec res;
   clock_gettime(CLOCK_BOOTTIME, &res);
-=======
-long GetMonotonicTimeNano() {
-  struct timespec res;
-  clock_gettime(CLOCK_MONOTONIC, &res);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   return (res.tv_sec * kNanosInSeconds) + res.tv_nsec;
 }
 
@@ -498,18 +484,9 @@ GLuint LoadGLShader(GLenum type, const char* shader_source) {
   }
 }
 
-<<<<<<< HEAD
 bool TexturedMesh::Initialize(GLuint position_attrib, GLuint uv_attrib,
                               const std::string& obj_file_path,
                               AAssetManager* asset_mgr) {
-=======
-TexturedMesh::TexturedMesh()
-    : vertices_(), uv_(), indices_(), position_attrib_(0), uv_attrib_(0) {}
-
-bool TexturedMesh::Initialize(JNIEnv* env, AAssetManager* asset_mgr,
-                              const std::string& obj_file_path,
-                              GLuint position_attrib, GLuint uv_attrib) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   position_attrib_ = position_attrib;
   uv_attrib_ = uv_attrib;
   // We don't use normals for anything so we discard them.
@@ -532,11 +509,6 @@ void TexturedMesh::Draw() const {
                  indices_.data());
 }
 
-<<<<<<< HEAD
-=======
-Texture::Texture() : texture_id_(0) {}
-
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 Texture::~Texture() {
   if (texture_id_ != 0) {
     glDeleteTextures(1, &texture_id_);

@@ -17,17 +17,11 @@
 		0F4614762363635500BDF427 /* sdk.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0F4614752363635500BDF427 /* sdk.bundle */; };
 		0F4614782363636800BDF427 /* HelloCardboard.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 0F4614772363636800BDF427 /* HelloCardboard.bundle */; };
 		0FD20275235764AD00B3C342 /* launch.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0FD20265235764AD00B3C342 /* launch.xib */; };
-<<<<<<< HEAD
 		0FD2028D23576AC200B3C342 /* GfxPluginCardboard.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD20284235768A000B3C342 /* GfxPluginCardboard.a */; };
 		0FD2029323576FAB00B3C342 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD2029223576FAB00B3C342 /* AVFoundation.framework */; };
 		0FD2029523576FBC00B3C342 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD2029423576FBC00B3C342 /* CoreMotion.framework */; };
 		0FECE29C25BB279B009C662C /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FECE29B25BB279B009C662C /* Metal.framework */; };
 		0FECE29E25BB27A5009C662C /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FECE29D25BB27A5009C662C /* MetalKit.framework */; };
-=======
-		0FD2028D23576AC200B3C342 /* libsdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD20284235768A000B3C342 /* libsdk.a */; };
-		0FD2029323576FAB00B3C342 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD2029223576FAB00B3C342 /* AVFoundation.framework */; };
-		0FD2029523576FBC00B3C342 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0FD2029423576FBC00B3C342 /* CoreMotion.framework */; };
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,11 +62,8 @@
 		0FD2027E235767E100B3C342 /* sdk.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = sdk.xcodeproj; path = ../sdk/sdk.xcodeproj; sourceTree = "<group>"; };
 		0FD2029223576FAB00B3C342 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		0FD2029423576FBC00B3C342 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
-<<<<<<< HEAD
 		0FECE29B25BB279B009C662C /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		0FECE29D25BB27A5009C662C /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,17 +71,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-<<<<<<< HEAD
 				0FD2028D23576AC200B3C342 /* GfxPluginCardboard.a in Frameworks */,
 				0FD2029523576FBC00B3C342 /* CoreMotion.framework in Frameworks */,
 				0FD2029323576FAB00B3C342 /* AVFoundation.framework in Frameworks */,
 				0FECE29C25BB279B009C662C /* Metal.framework in Frameworks */,
 				0FECE29E25BB27A5009C662C /* MetalKit.framework in Frameworks */,
-=======
-				0FD2028D23576AC200B3C342 /* libsdk.a in Frameworks */,
-				0FD2029523576FBC00B3C342 /* CoreMotion.framework in Frameworks */,
-				0FD2029323576FAB00B3C342 /* AVFoundation.framework in Frameworks */,
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,11 +117,8 @@
 		0FD2027D235767E100B3C342 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				0FECE29D25BB27A5009C662C /* MetalKit.framework */,
 				0FECE29B25BB279B009C662C /* Metal.framework */,
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				0FD2029423576FBC00B3C342 /* CoreMotion.framework */,
 				0FD2029223576FAB00B3C342 /* AVFoundation.framework */,
 				0FD2027E235767E100B3C342 /* sdk.xcodeproj */,
@@ -147,11 +129,7 @@
 		0FD20280235768A000B3C342 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
 				0FD20284235768A000B3C342 /* GfxPluginCardboard.a */,
-=======
-				0FD20284235768A000B3C342 /* libsdk.a */,
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -183,11 +161,7 @@
 		0FD20092235751D600B3C342 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-<<<<<<< HEAD
 				LastUpgradeCheck = 1220;
-=======
-				LastUpgradeCheck = 1010;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				TargetAttributes = {
 					0FD20099235751D600B3C342 = {
 						CreatedOnToolsVersion = 10.1;
@@ -219,17 +193,10 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-<<<<<<< HEAD
 		0FD20284235768A000B3C342 /* GfxPluginCardboard.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = GfxPluginCardboard.a;
-=======
-		0FD20284235768A000B3C342 /* libsdk.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libsdk.a;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 			remoteRef = 0FD20283235768A000B3C342 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
@@ -300,10 +267,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-<<<<<<< HEAD
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -329,7 +293,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-<<<<<<< HEAD
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -338,12 +301,6 @@
 					"-Wall",
 					"-Wextra",
 				);
-=======
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
-				MTL_FAST_MATH = YES;
-				ONLY_ACTIVE_ARCH = YES;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -374,10 +331,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-<<<<<<< HEAD
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -397,7 +351,6 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-<<<<<<< HEAD
 				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -405,11 +358,6 @@
 					"-Wall",
 					"-Wextra",
 				);
-=======
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				MTL_FAST_MATH = YES;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -419,7 +367,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-<<<<<<< HEAD
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C5M9TX4B3U;
@@ -429,11 +376,6 @@
 					"$(inherited)",
 					GLES_SILENCE_DEPRECATION,
 				);
-=======
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C5M9TX4B3U;
-				ENABLE_BITCODE = NO;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				HEADER_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				INFOPLIST_FILE = "$(SRCROOT)/HelloCardboard-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -450,17 +392,11 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-<<<<<<< HEAD
 				CLANG_CXX_LANGUAGE_STANDARD = "c++17";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C5M9TX4B3U;
 				ENABLE_BITCODE = NO;
 				GCC_PREPROCESSOR_DEFINITIONS = GLES_SILENCE_DEPRECATION;
-=======
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = C5M9TX4B3U;
-				ENABLE_BITCODE = NO;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 				HEADER_SEARCH_PATHS = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				INFOPLIST_FILE = "$(SRCROOT)/HelloCardboard-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

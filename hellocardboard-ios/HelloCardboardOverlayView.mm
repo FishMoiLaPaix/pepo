@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google LLC. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -40,15 +36,8 @@ static const CGFloat kMenuSheetBottomPadding = 8;
 // DPI for iPhone (default) and iPhone+: http://dpi.lv/
 static CGFloat const kDefaultDpi = 326.0f;
 static CGFloat const kIPhone6PlusDpi = 401.0f;
-<<<<<<< HEAD
 static CGFloat const kMetersPerInch = 0.0254f;
 
-=======
-static CGFloat const kIPhoneXDpi = 458.0f;
-static CGFloat const kMetersPerInch = 0.0254f;
-
-const CGFloat kAlignmentMarkerHeightX = (28.0f / (kMetersPerInch * 1000)) * kIPhoneXDpi / 3;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 const CGFloat kAlignmentMarkerHeight6Plus = (28.0f / (kMetersPerInch * 1000)) * kIPhone6PlusDpi / 3;
 const CGFloat kAlignmentMarkerHeight = (28.0f / (kMetersPerInch * 1000)) * kDefaultDpi / 2;
 

@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google LLC. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,20 +48,12 @@
   return YES;
 }
 
-<<<<<<< HEAD
 // Make the navigation controller defer the check of supported orientation to its visible view
 // controller. This allows |CardboardViewController| to lock the orientation in VR mode and allow
 // all orientations for QRScanViewController.
 - (UIInterfaceOrientationMask)navigationControllerSupportedInterfaceOrientations:
     (UINavigationController *)navigationController {
   return [navigationController.visibleViewController supportedInterfaceOrientations];
-=======
-// Make the navigation controller defer the check of supported orientation to its topmost view
-// controller. This allows |CardboardViewController| to lock the orientation in VR mode.
-- (UIInterfaceOrientationMask)navigationControllerSupportedInterfaceOrientations:
-    (UINavigationController *)navigationController {
-  return [navigationController.topViewController supportedInterfaceOrientations];
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }
 
 @end

@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -130,7 +126,6 @@ class Rotation {
   // Multiply a Rotation and a Vector to get a Vector.
   VectorType operator*(const VectorType& v) const;
 
-<<<<<<< HEAD
   // @{ Functions that return the Yaw, Pitch and Roll angle from the current
   // value of quat_.
   //
@@ -148,8 +143,6 @@ class Rotation {
   double GetRollAngle() const;
   // @}
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  private:
   // Private constructor that builds a Rotation from quaternion components.
   Rotation(double q0, double q1, double q2, double q3)

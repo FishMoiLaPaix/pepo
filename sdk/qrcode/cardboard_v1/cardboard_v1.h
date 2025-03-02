@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +20,6 @@
 
 #include <vector>
 
-<<<<<<< HEAD
 namespace cardboard::qrcode {
 
 /// Device params for Cardboard V1 released at Google I/O 2014.
@@ -42,12 +37,5 @@ constexpr char kCardboardV1Model[] = "Cardboard v1";
 
 std::vector<uint8_t> getCardboardV1DeviceParams();
 }  // namespace cardboard::qrcode
-=======
-namespace cardboard {
-namespace qrcode {
-std::vector<uint8_t> getCardboardV1DeviceParams();
-}
-}  // namespace cardboard
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
 #endif  // CARDBOARD_SDK_QRCODE_CARDBOARD_V1_CARDBOARD_V1_H_

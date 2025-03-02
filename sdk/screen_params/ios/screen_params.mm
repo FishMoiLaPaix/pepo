@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,7 +47,6 @@ NSString *const kGIPDeviceGenerationiPhone11 = @"iPhone 11";
 NSString *const kGIPDeviceGenerationiPhone11Pro = @"iPhone 11 Pro";
 NSString *const kGIPDeviceGenerationiPhone11ProMax = @"iPhone 11 Pro Max";
 NSString *const kGIPDeviceGenerationiPhoneSimulator = @"iPhone Simulator";
-<<<<<<< HEAD
 NSString *const kGIPDeviceGenerationiPhone12Mini = @"iPhone 12 Mini";
 NSString *const kGIPDeviceGenerationiPhone12 = @"iPhone 12";
 NSString *const kGIPDeviceGenerationiPhone12Pro = @"iPhone 12 Pro";
@@ -77,20 +72,13 @@ NSString *const kGIPDeviceGenerationiPhone16ProMax = @"iPhone 16 Pro Max";
 NSString *const kGIPDeviceGenerationiPodTouch7thGen = @"iPod touch (7th generation)";
 
 // DPI for iPod touch, iPhone (default) and iPhone+: http://dpi.lv/
-=======
-
-// DPI for iPhone (default) and iPhone+: http://dpi.lv/
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 static CGFloat const kDefaultDpi = 326.0f;
 static CGFloat const kIPhonePlusDpi = 401.0f;
 static CGFloat const kIPhoneOledDpi = 458.0f;
 static CGFloat const kIPhoneXrDpi = 324.0f;
 static CGFloat const kIPhoneXsMaxDpi = 456.0f;
-<<<<<<< HEAD
 static CGFloat const kIPhone12MiniDpi = 476.0f;
 static CGFloat const kIPhone12Dpi = 460.0f;
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
 CGFloat getDpi() {
   // Gets model name.
@@ -140,7 +128,6 @@ CGFloat getDpi() {
     @"iPhone12,1" : kGIPDeviceGenerationiPhone11,
     @"iPhone12,3" : kGIPDeviceGenerationiPhone11Pro,
     @"iPhone12,5" : kGIPDeviceGenerationiPhone11ProMax,
-<<<<<<< HEAD
     @"iPhone13,1" : kGIPDeviceGenerationiPhone12Mini,
     @"iPhone13,2" : kGIPDeviceGenerationiPhone12,
     @"iPhone13,3" : kGIPDeviceGenerationiPhone12Pro,
@@ -162,8 +149,6 @@ CGFloat getDpi() {
     @"iPhone17,1" : kGIPDeviceGenerationiPhone16Pro,
     @"iPhone17,2" : kGIPDeviceGenerationiPhone16ProMax,
     @"iPod9,1" : kGIPDeviceGenerationiPodTouch7thGen,
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   };
   NSString *model = models[modelName];
   if (!model) {
@@ -196,7 +181,6 @@ CGFloat getDpi() {
     kGIPDeviceGenerationiPhone11 : @(kDefaultDpi),
     kGIPDeviceGenerationiPhone11Pro : @(kIPhoneOledDpi),
     kGIPDeviceGenerationiPhone11ProMax : @(kIPhoneOledDpi),
-<<<<<<< HEAD
     kGIPDeviceGenerationiPhone12Mini : @(kIPhone12MiniDpi),
     kGIPDeviceGenerationiPhone12 : @(kIPhone12Dpi),
     kGIPDeviceGenerationiPhone12Pro : @(kIPhone12Dpi),
@@ -218,8 +202,6 @@ CGFloat getDpi() {
     kGIPDeviceGenerationiPhone16Pro : @(kIPhone12Dpi),
     kGIPDeviceGenerationiPhone16ProMax : @(kIPhone12Dpi),
     kGIPDeviceGenerationiPodTouch7thGen : @(kDefaultDpi),
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   };
 
   NSNumber *dpi = dpis[model];

@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,10 +22,7 @@
 #include <memory>
 #include <mutex>  // NOLINT
 
-<<<<<<< HEAD
 #include "util/constants.h"
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 #include "util/logging.h"
 
 // Workaround to avoid the inclusion of "android_native_app_glue.h.
@@ -63,11 +56,7 @@ const ASensor* InitSensor(ASensorManager* sensor_manager) {
 
 bool PollLooper(int timeout_ms, int* num_events) {
   void* source = nullptr;
-<<<<<<< HEAD
   const int looper_id = ALooper_pollOnce(timeout_ms, NULL, num_events,
-=======
-  const int looper_id = ALooper_pollAll(timeout_ms, NULL, num_events,
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
                                         reinterpret_cast<void**>(&source));
   if (looper_id != LOOPER_ID_USER) {
     return false;
@@ -140,7 +129,6 @@ struct DeviceAccelerometerSensor::SensorInfo {
 
 DeviceAccelerometerSensor::DeviceAccelerometerSensor()
     : sensor_info_(new SensorInfo()) {
-<<<<<<< HEAD
 #if __ANDROID_MIN_SDK_VERSION__ >= 26
   sensor_info_->sensor_manager =
       ASensorManager_getInstanceForPackage(Constants::kCardboardSdkPackageName);
@@ -148,9 +136,6 @@ DeviceAccelerometerSensor::DeviceAccelerometerSensor()
   // TODO: b/314792983 - Remove deprecated NDK methods.
   sensor_info_->sensor_manager = ASensorManager_getInstance();
 #endif
-=======
-  sensor_info_->sensor_manager = ASensorManager_getInstance();
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   sensor_info_->sensor = InitSensor(sensor_info_->sensor_manager);
   if (!sensor_info_->sensor) {
     return;

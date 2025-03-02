@@ -5,11 +5,7 @@
     android:orientation="vertical">
 
     <!-- Camera source preview -->
-<<<<<<< HEAD
     <com.google.cardboard.sdk.qrcode.camera.CameraSourcePreview
-=======
-    <com.google.cardboard.qrcode.camera.CameraSourcePreview
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
         android:id="@+id/preview"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

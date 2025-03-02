@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -97,19 +93,11 @@ float AngleBetweenVectors(const std::array<float, 4>& vec1,
                           const std::array<float, 4>& vec2);
 
 /**
-<<<<<<< HEAD
  * Gets system boot time in nanoseconds.
  *
  * @return System boot time in nanoseconds
  */
 int64_t GetBootTimeNano();
-=======
- * Gets monotonic time in nanoseconds.
- *
- * @return Monotonic time in nanoseconds
- */
-long GetMonotonicTimeNano();
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
 /**
  * Generates a random floating point number between |min| and |max|.
@@ -151,23 +139,13 @@ GLuint LoadGLShader(GLenum type, const char* shader_source);
 
 class TexturedMesh {
  public:
-<<<<<<< HEAD
   TexturedMesh() = default;
-=======
-  TexturedMesh();
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
   // Initializes the mesh from a .obj file.
   //
   // @return True if initialization was successful.
-<<<<<<< HEAD
   bool Initialize(GLuint position_attrib, GLuint uv_attrib,
                   const std::string& obj_file_path, AAssetManager* asset_mgr);
-=======
-  bool Initialize(JNIEnv* env, AAssetManager* asset_mgr,
-                  const std::string& obj_file_path, GLuint position_attrib,
-                  GLuint uv_attrib);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
   // Draws the mesh. The u_MVP uniform should be set before calling this using
   // glUniformMatrix4fv(), and a texture should be bound to GL_TEXTURE0.
@@ -177,22 +155,13 @@ class TexturedMesh {
   std::vector<GLfloat> vertices_;
   std::vector<GLfloat> uv_;
   std::vector<GLushort> indices_;
-<<<<<<< HEAD
   GLuint position_attrib_{0};
   GLuint uv_attrib_{0};
-=======
-  GLuint position_attrib_;
-  GLuint uv_attrib_;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 };
 
 class Texture {
  public:
-<<<<<<< HEAD
   Texture() = default;
-=======
-  Texture();
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
   ~Texture();
 
@@ -210,11 +179,7 @@ class Texture {
   void Bind() const;
 
  private:
-<<<<<<< HEAD
   GLuint texture_id_{0};
-=======
-  GLuint texture_id_;
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 };
 
 }  // namespace ndk_hello_cardboard

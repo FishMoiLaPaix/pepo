@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,21 +15,14 @@
  */
 #include "head_tracker.h"
 
-<<<<<<< HEAD
 #include "include/cardboard.h"
 #include "sensors/neck_model.h"
 #include "util/logging.h"
 #include "util/rotation.h"
-=======
-#include "sensors/neck_model.h"
-#include "sensors/pose_prediction.h"
-#include "util/logging.h"
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 #include "util/vector.h"
 #include "util/vectorutils.h"
 
 namespace cardboard {
-<<<<<<< HEAD
 // @{ Hold rotations to adapt the pose estimation to the viewport and head
 // poses. Use the following indexing for each viewport orientation:
 // [0]: Landscape left.
@@ -123,21 +112,14 @@ ViewportChangeRotationCompensation() {
       }};
   return kViewportChangeRotationCompensation;
 }
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
 HeadTracker::HeadTracker()
     : is_tracking_(false),
       sensor_fusion_(new SensorFusionEkf()),
       latest_gyroscope_data_({0, 0, Vector3::Zero()}),
       accel_sensor_(new SensorEventProducer<AccelerometerData>()),
-<<<<<<< HEAD
       gyro_sensor_(new SensorEventProducer<GyroscopeData>()),
       is_viewport_orientation_initialized_(false) {
-=======
-      gyro_sensor_(new SensorEventProducer<GyroscopeData>()) {
-  sensor_fusion_->SetBiasEstimationEnabled(/*kGyroBiasEstimationEnabled*/ true);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   on_accel_callback_ = [&](const AccelerometerData& event) {
     OnAccelerometerData(event);
   };
@@ -171,7 +153,6 @@ void HeadTracker::Resume() {
 }
 
 void HeadTracker::GetPose(int64_t timestamp_ns,
-<<<<<<< HEAD
                           CardboardViewportOrientation viewport_orientation,
                           std::array<float, 3>& out_position,
                           std::array<float, 4>& out_orientation) {
@@ -191,56 +172,16 @@ void HeadTracker::GetPose(int64_t timestamp_ns,
   out_orientation[1] = static_cast<float>(orientation[1]);
   out_orientation[2] = static_cast<float>(orientation[2]);
   out_orientation[3] = static_cast<float>(orientation[3]);
-=======
-                          std::array<float, 3>& out_position,
-                          std::array<float, 4>& out_orientation) const {
-  Rotation predicted_rotation;
-  const PoseState pose_state = sensor_fusion_->GetLatestPoseState();
-  if (!sensor_fusion_->IsFullyInitialized()) {
-    CARDBOARD_LOGI(
-        "Head Tracker not fully initialized yet. Using pose prediction only.");
-    predicted_rotation = pose_prediction::PredictPose(timestamp_ns, pose_state);
-  } else {
-    predicted_rotation = pose_state.sensor_from_start_rotation;
-  }
-
-  // In order to update our pose as the sensor changes, we begin with the
-  // inverse default orientation (the orientation returned by a reset sensor),
-  // apply the current sensor transformation, and then transform into display
-  // space.
-  // TODO(b/135488467): Support different screen orientations.
-  const Rotation ekf_to_head_tracker =
-      Rotation::FromYawPitchRoll(-M_PI / 2.0, 0, -M_PI / 2.0);
-  const Rotation sensor_to_display =
-      Rotation::FromAxisAndAngle(Vector3(0, 0, 1), M_PI / 2.0);
-
-  const Vector4 q =
-      (sensor_to_display * predicted_rotation * ekf_to_head_tracker)
-          .GetQuaternion();
-  Rotation rotation;
-  rotation.SetQuaternion(q);
-
-  out_orientation[0] = static_cast<float>(rotation.GetQuaternion()[0]);
-  out_orientation[1] = static_cast<float>(rotation.GetQuaternion()[1]);
-  out_orientation[2] = static_cast<float>(rotation.GetQuaternion()[2]);
-  out_orientation[3] = static_cast<float>(rotation.GetQuaternion()[3]);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
   out_position = ApplyNeckModel(out_orientation, 1.0);
 }
 
-<<<<<<< HEAD
 void HeadTracker::Recenter() {
   sensor_fusion_->Reset();
 }
 
 void HeadTracker::SetLowPassFilter(const int cutoff_frequency) {
   sensor_fusion_->SetLowPassFilter(cutoff_frequency);
-=======
-Rotation HeadTracker::GetDefaultOrientation() const {
-  return Rotation::FromRotationMatrix(
-      Matrix3x3(0.0, -1.0, 0.0, 0.0, 0.0, 1.0, -1.0, 0.0, 0.0));
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }
 
 void HeadTracker::RegisterCallbacks() {
@@ -268,7 +209,6 @@ void HeadTracker::OnGyroscopeData(const GyroscopeData& event) {
   sensor_fusion_->ProcessGyroscopeSample(event);
 }
 
-<<<<<<< HEAD
 Rotation HeadTracker::GetRotation(
     CardboardViewportOrientation viewport_orientation,
     int64_t timestamp_ns) const {
@@ -283,6 +223,4 @@ Rotation HeadTracker::GetRotation(
          EkfToHeadTrackerRotations()[viewport_orientation];
 }
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }  // namespace cardboard

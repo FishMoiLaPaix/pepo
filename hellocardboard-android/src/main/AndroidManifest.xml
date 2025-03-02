@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
             
     <uses-feature android:glEsVersion="0x00030000" android:required="true" />
@@ -8,20 +7,11 @@
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
 
-=======
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.google.cardboard">
-
-    <uses-feature android:glEsVersion="0x00030002" android:required="true" />
-    <uses-feature android:name="android.hardware.sensor.accelerometer" android:required="true"/>
-    <uses-feature android:name="android.hardware.sensor.gyroscope" android:required="true"/>
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
-<<<<<<< HEAD
     
     <application
         android:allowBackup="true"
@@ -31,18 +21,6 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".StereoCameraActivity"
-=======
-
-    <application
-        android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
-        android:label="@string/app_name"
-        android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/AppTheme">
-        <activity
-            android:name="com.google.cardboard.VrActivity"
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
             android:label="@string/title_activity_vr"
             android:theme="@style/Theme.AppCompat.NoActionBar"
             android:screenOrientation="landscape"

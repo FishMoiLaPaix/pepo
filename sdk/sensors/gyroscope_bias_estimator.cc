@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -268,13 +264,8 @@ bool GyroscopeBiasEstimator::UpdateGyroscopeBias(
     return false;
   }
 
-<<<<<<< HEAD
   float update_weight =
       1.0f - gyroscope_sample_norm2 / kGyroscopeForBiasThreshold;
-=======
-  float update_weight = std::max(
-      0.0f, 1.0f - gyroscope_sample_norm2 / kGyroscopeForBiasThreshold);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   update_weight *= update_weight;
   gyroscope_bias_lowpass_filter_.AddWeightedSample(
       gyroscope_lowpass_filter_.GetFilteredData(), timestamp_ns, update_weight);

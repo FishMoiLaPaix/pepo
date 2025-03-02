@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -45,61 +41,37 @@ JavaVM* javaVm;
 
 extern "C" {
 
-<<<<<<< HEAD
 JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* /*reserved*/) {
-=======
-JNIEXPORT jint JNI_OnLoad(JavaVM* vm, void* reserved) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   javaVm = vm;
   return JNI_VERSION_1_6;
 }
 
 JNI_METHOD(jlong, nativeOnCreate)
-<<<<<<< HEAD
 (JNIEnv* /*env*/, jobject obj, jobject asset_mgr) {
-=======
-(JNIEnv* env, jobject obj, jobject asset_mgr) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   return jptr(new ndk_hello_cardboard::HelloCardboardApp(javaVm, obj, asset_mgr));
 }
 
 JNI_METHOD(void, nativeOnDestroy)
-<<<<<<< HEAD
 (JNIEnv* /*env*/, jobject /*obj*/, jlong native_app) {
   delete native(native_app);
 }
 
 JNI_METHOD(void, nativeOnSurfaceCreated)
 (JNIEnv* env, jobject /*obj*/, jlong native_app) {
-=======
-(JNIEnv* env, jobject obj, jlong native_app) { delete native(native_app); }
-
-JNI_METHOD(void, nativeOnSurfaceCreated)
-(JNIEnv* env, jobject obj, jlong native_app) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   native(native_app)->OnSurfaceCreated(env);
 }
 
 JNI_METHOD(void, nativeOnDrawFrame)
-<<<<<<< HEAD
 (JNIEnv* /*env*/, jobject /*obj*/, jlong native_app) {
-=======
-(JNIEnv* env, jobject obj, jlong native_app) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   native(native_app)->OnDrawFrame();
 }
 
 JNI_METHOD(void, nativeOnTriggerEvent)
-<<<<<<< HEAD
 (JNIEnv* /*env*/, jobject /*obj*/, jlong native_app) {
-=======
-(JNIEnv* env, jobject obj, jlong native_app) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   native(native_app)->OnTriggerEvent();
 }
 
 JNI_METHOD(void, nativeOnPause)
-<<<<<<< HEAD
 (JNIEnv* /*env*/, jobject /*obj*/, jlong native_app) {
   native(native_app)->OnPause();
 }
@@ -111,24 +83,11 @@ JNI_METHOD(void, nativeOnResume)
 
 JNI_METHOD(void, nativeSetScreenParams)
 (JNIEnv* /*env*/, jobject /*obj*/, jlong native_app, jint width, jint height) {
-=======
-(JNIEnv* env, jobject obj, jlong native_app) { native(native_app)->OnPause(); }
-
-JNI_METHOD(void, nativeOnResume)
-(JNIEnv* env, jobject obj, jlong native_app) { native(native_app)->OnResume(); }
-
-JNI_METHOD(void, nativeSetScreenParams)
-(JNIEnv* env, jobject obj, jlong native_app, jint width, jint height) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   native(native_app)->SetScreenParams(width, height);
 }
 
 JNI_METHOD(void, nativeSwitchViewer)
-<<<<<<< HEAD
 (JNIEnv* /*env*/, jobject /*obj*/, jlong native_app) {
-=======
-(JNIEnv* env, jobject obj, jlong native_app) {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   native(native_app)->SwitchViewer();
 }
 

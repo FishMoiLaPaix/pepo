@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
  * Copyright 2019 Google LLC
-=======
- * Copyright 2019 Google Inc. All Rights Reserved.
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -19,7 +15,6 @@
  */
 #include "qr_code.h"
 
-<<<<<<< HEAD
 #include <jni.h>
 
 #include <array>
@@ -39,15 +34,10 @@ JNI_METHOD(void, QrCodeCaptureActivity, nativeIncrementDeviceParamsChangedCount)
 }  // extern "C"
 
 namespace cardboard::qrcode {
-=======
-namespace cardboard {
-namespace qrcode {
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 
 namespace {
 JavaVM* vm_;
 jobject context_;
-<<<<<<< HEAD
 jclass cardboard_params_utils_class_;
 jclass intent_class_;
 jclass component_name_class_;
@@ -84,25 +74,19 @@ void LoadJNIResources(JNIEnv* env) {
 
 void IncrementDeviceParamsChangedCount() { device_params_changed_count_++; }
 
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }  // anonymous namespace
 
 void initializeAndroid(JavaVM* vm, jobject context) {
   vm_ = vm;
   context_ = context;
-<<<<<<< HEAD
 
   JNIEnv* env;
   cardboard::jni::LoadJNIEnv(vm_, &env);
   LoadJNIResources(env);
-=======
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
 }
 
 std::vector<uint8_t> getCurrentSavedDeviceParams() {
   JNIEnv* env;
-<<<<<<< HEAD
   cardboard::jni::LoadJNIEnv(vm_, &env);
 
   jmethodID readDeviceParams =
@@ -110,27 +94,12 @@ std::vector<uint8_t> getCurrentSavedDeviceParams() {
                              "(Landroid/content/Context;)[B");
   jbyteArray byteArray = static_cast<jbyteArray>(env->CallStaticObjectMethod(
       cardboard_params_utils_class_, readDeviceParams, context_));
-=======
-  vm_->GetEnv((void**)&env, JNI_VERSION_1_6);
-
-  jclass cardboardParamsUtilsClass =
-      env->FindClass("com/google/cardboard/qrcode/CardboardParamsUtils");
-  jmethodID readDeviceParamsFromExternalStorage = env->GetStaticMethodID(
-      cardboardParamsUtilsClass, "readDeviceParamsFromExternalStorage", "()[B");
-  jbyteArray byteArray = (jbyteArray)env->CallStaticObjectMethod(
-      cardboardParamsUtilsClass, readDeviceParamsFromExternalStorage);
-
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   if (byteArray == nullptr) {
     return {};
   }
 
-<<<<<<< HEAD
   const int length = env->GetArrayLength(byteArray);
 
-=======
-  int length = env->GetArrayLength(byteArray);
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
   std::vector<uint8_t> buffer;
   buffer.resize(length);
   env->GetByteArrayRegion(byteArray, 0, length,
@@ -141,7 +110,6 @@ std::vector<uint8_t> getCurrentSavedDeviceParams() {
 void scanQrCodeAndSaveDeviceParams() {
   // Get JNI environment pointer
   JNIEnv* env;
-<<<<<<< HEAD
   cardboard::jni::LoadJNIEnv(vm_, &env);
 
   // Get instance of Intent
@@ -160,27 +128,6 @@ void scanQrCodeAndSaveDeviceParams() {
   // Set component in intent
   jmethodID setComponent = env->GetMethodID(
       intent_class_, "setComponent",
-=======
-  vm_->GetEnv((void**)&env, JNI_VERSION_1_6);
-
-  // Get instance of Intent
-  jclass intentClass = env->FindClass("android/content/Intent");
-  jmethodID newIntent = env->GetMethodID(intentClass, "<init>", "()V");
-  jobject intentObject = env->NewObject(intentClass, newIntent);
-
-  // Get instance of ComponentName
-  jclass componentNameClass = env->FindClass("android/content/ComponentName");
-  jmethodID newComponentName = env->GetMethodID(
-      componentNameClass, "<init>", "(Landroid/content/Context;Ljava/lang/String;)V");
-  jstring className =
-      env->NewStringUTF("com.google.cardboard.QrCodeCaptureActivity");
-  jobject componentNameObject = env->NewObject(
-      componentNameClass, newComponentName, context_, className);
-
-  // Set component in intent
-  jmethodID setComponent = env->GetMethodID(
-      intentClass, "setComponent",
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
       "(Landroid/content/ComponentName;)Landroid/content/Intent;");
   env->CallObjectMethod(intentObject, setComponent, componentNameObject);
 
@@ -191,7 +138,6 @@ void scanQrCodeAndSaveDeviceParams() {
   env->CallVoidMethod(context_, startActivity, intentObject);
 }
 
-<<<<<<< HEAD
 void saveDeviceParams(const uint8_t* uri, int size) {
   // Get JNI environment pointer
   JNIEnv* env;
@@ -233,7 +179,3 @@ JNI_METHOD(void, QrCodeCaptureActivity, nativeIncrementDeviceParamsChangedCount)
 }
 
 }  // extern "C"
-=======
-}  // namespace qrcode
-}  // namespace cardboard
->>>>>>> 5f55cf9 (Cardboard SDK initial release.)
