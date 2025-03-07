@@ -1,5 +1,5 @@
 /*
- * Copyright 2019 Google Inc. All Rights Reserved.
+ * Copyright 2019 Google LLC
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,11 +22,11 @@ import android.content.pm.PackageManager;
 import android.content.res.AssetManager;
 import android.net.Uri;
 import android.opengl.GLSurfaceView;
+import android.os.Build.VERSION;
+import android.os.Build.VERSION_CODES;
 import android.os.Bundle;
 import android.provider.Settings;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityCompat;
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -35,6 +35,8 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.PopupMenu;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
+import androidx.core.app.ActivityCompat;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.opengles.GL10;
 
@@ -44,6 +46,8 @@ import javax.microedition.khronos.opengles.GL10;
  * <p>This is the main Activity for the sample application. It initializes a GLSurfaceView to allow
  * rendering.
  */
+// TODO(b/184737638): Remove decorator once the AndroidX migration is completed.
+@SuppressWarnings("deprecation")
 public class VrActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
   static {
     System.loadLibrary("cardboard_jni");
@@ -117,8 +121,11 @@ public class VrActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
   protected void onResume() {
     super.onResume();
 
-    // Checks for activity permissions, if not granted, requests them.
-    if (!arePermissionsEnabled()) {
+    // On Android P and below, checks for activity to READ_EXTERNAL_STORAGE. When it is not granted,
+    // the application will request them. For Android Q and above, READ_EXTERNAL_STORAGE is optional
+    // and scoped storage will be used instead. If it is provided (but not checked) and there are
+    // device parameters saved in external storage those will be migrated to scoped storage.
+    if (VERSION.SDK_INT < VERSION_CODES.Q && !isReadExternalStorageEnabled()) {
       requestPermissions();
       return;
     }
@@ -184,30 +191,37 @@ public class VrActivity extends AppCompatActivity implements PopupMenu.OnMenuIte
   }
 
   /**
-   * Checks for activity permissions.
+   * Checks for READ_EXTERNAL_STORAGE permission.
    *
-   * @return whether the permissions are already granted.
+   * @return whether the READ_EXTERNAL_STORAGE is already granted.
    */
-  private boolean arePermissionsEnabled() {
+  private boolean isReadExternalStorageEnabled() {
     return ActivityCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
         == PackageManager.PERMISSION_GRANTED;
   }
 
-  /** Handles the requests for activity permissions. */
+  /** Handles the requests for activity permission to READ_EXTERNAL_STORAGE. */
   private void requestPermissions() {
     final String[] permissions = new String[] {Manifest.permission.READ_EXTERNAL_STORAGE};
     ActivityCompat.requestPermissions(this, permissions, PERMISSIONS_REQUEST_CODE);
   }
 
-  /** Callback for the result from requesting permissions. */
+  /**
+   * Callback for the result from requesting permissions.
+   *
+   * <p>When READ_EXTERNAL_STORAGE permission is not granted, the settings view will be launched
+   * with a toast explaining why it is required.
+   */
   @Override
   public void onRequestPermissionsResult(
       int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-    if (!arePermissionsEnabled()) {
-      Toast.makeText(this, R.string.no_permissions, Toast.LENGTH_LONG).show();
+    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    if (!isReadExternalStorageEnabled()) {
+      Toast.makeText(this, R.string.read_storage_permission, Toast.LENGTH_LONG).show();
       if (!ActivityCompat.shouldShowRequestPermissionRationale(
           this, Manifest.permission.READ_EXTERNAL_STORAGE)) {
-        // Permission denied with checking "Do not ask again".
+        // Permission denied with checking "Do not ask again". Note that in Android R "Do not ask
+        // again" is not available anymore.
         launchPermissionsSettings();
       }
       finish();

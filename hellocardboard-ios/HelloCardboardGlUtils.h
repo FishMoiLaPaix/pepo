@@ -28,6 +28,7 @@
 
 namespace cardboard {
 namespace hello_cardboard {
+
 /**
  * Generates a random floating point number between |min| and |max|.
  */
