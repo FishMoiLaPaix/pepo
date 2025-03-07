@@ -3,9 +3,6 @@ apply plugin: 'com.google.protobuf'
 
 android {
     compileSdk 35
-    lintOptions {
-        abortOnError false
-    }
     defaultConfig {
         // #gles3 #vulkan - You can reduce minSdkVersion down to 16 depending
         // on rendering APIs supported:
@@ -50,6 +47,9 @@ android {
         main.proto.includes = ["cardboard_device.proto"]
     }
     namespace 'com.google.cardboard.sdk'
+    lint {
+        abortOnError false
+    }
 }
 
 protobuf {

@@ -2,9 +2,6 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdk 35
-    lintOptions {
-        abortOnError false
-    }
     defaultConfig {
         applicationId "com.google.cardboard.hellocardboard"
         // #gles3 #vulkan - You can reduce minSdkVersion down to 16 depending
@@ -37,6 +34,9 @@ android {
         path "CMakeLists.txt"
     }
     namespace 'com.google.cardboard'
+    lint {
+        abortOnError false
+    }
 }
 
 dependencies {
